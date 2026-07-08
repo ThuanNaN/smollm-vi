@@ -9,6 +9,9 @@
 # Usage:
 #   DATA_FOLDER=/path/to/vietnamese_data TOKENIZER_DIR=/path/to/expanded_tokenizer ./train_1gpu.sh
 #   Optional: OUTPUT_DIR=..., MAX_STEPS=20 (smoke test), RESUME=1
+#   Optional: DISABLE_FLASH_ATTN2=False if flash-attn is installed (faster,
+#     lower memory than the eager default — see vision/smolvlm2/requirements.txt
+#     for why flash-attn isn't installed by default).
 
 set -euo pipefail
 
@@ -19,6 +22,7 @@ DATA_FOLDER="${DATA_FOLDER:?Set DATA_FOLDER to the converted-data root}"
 TOKENIZER_DIR="${TOKENIZER_DIR:?Set TOKENIZER_DIR to the expanded processor dir}"
 OUTPUT_DIR="${OUTPUT_DIR:-$REPO_ROOT/checkpoints/vietnamese_stage1}"
 MAX_STEPS="${MAX_STEPS:--1}"   # -1 = full epoch; set e.g. 20 for a smoke test
+DISABLE_FLASH_ATTN2="${DISABLE_FLASH_ATTN2:-True}"   # True = eager attention (no flash-attn needed)
 
 MIXTURE_TEMPLATE="$REPO_ROOT/vision/smolvlm2/scripts/mixtures/vietnamese_stage1.yaml"
 mkdir -p "$OUTPUT_DIR"
@@ -64,6 +68,7 @@ python smolvlm/train/train.py \
     --lora_dropout 0.1 \
     --target_modules q_proj k_proj v_proj o_proj \
     --lora_modules_to_save embed_tokens lm_head \
+    --disable_flash_attn2 "$DISABLE_FLASH_ATTN2" \
     --report_to none
 
 echo "Done. Checkpoints in: $OUTPUT_DIR"

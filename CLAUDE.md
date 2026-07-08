@@ -89,10 +89,7 @@ trainable embeddings) → `vision/evaluation/vietnamese/run_evaluation.py`
 (baseline & finetuned) + `compare_results.py`. Eval outputs land in
 `evals/vietnamese/`. `vision/smolvlm2/requirements.txt` pins `transformers`
 to a narrow, verified version window — see the comment at its top before
-bumping it. `vision/evaluation/vietnamese/text_baseline.py` is an older,
-separate standalone script (not part of this pipeline) still using the
-legacy `Idefics3ForConditionalGeneration` pattern directly; it predates and
-is unrelated to `run_evaluation.py`.
+bumping it.
 
 ### Running a single eval task / test
 There is no unit-test suite in this repo. "Testing" here means running a specific eval task:
