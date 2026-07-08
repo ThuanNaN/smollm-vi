@@ -1,20 +1,20 @@
 """
-Script to expand a HuggingFace tokenizer with new tokens from a Vietnamese corpus.
+Script to expand a HuggingFace SmolVLM2 processor with new Vietnamese tokens.
 
 This script:
-1. Loads a base tokenizer (e.g., SmolLM2-360M-Instruct) and saves a copy
+1. Loads the SmolVLM2 processor (tokenizer + image processor + chat template)
 2. Trains a byte-level BPE tokenizer on the Vietnamese corpus
 3. Appends new tokens and their merge rules to the base vocabulary,
    keeping every base token at its original ID (so the base model's
    embedding matrix stays aligned — only new rows need to be added)
-4. Saves the expanded tokenizer and verifies it loads
+4. Saves the expanded processor and verifies expansion correctness
 
 Usage:
     python expand_tokenizer.py \
-        --base_tokenizer HuggingFaceTB/SmolLM2-360M-Instruct \
         --corpus path/to/vietnamese_text.txt \
         --output_dir path/to/output \
-        --new_vocab_size 57000
+        [--base_model HuggingFaceTB/SmolVLM2-500M-Video-Instruct] \
+        [--new_vocab_size 57344]
 """
 
 import argparse
@@ -24,7 +24,7 @@ from pathlib import Path
 from tokenizers import Tokenizer, pre_tokenizers
 from tokenizers.models import BPE
 from tokenizers.trainers import BpeTrainer
-from transformers import AutoTokenizer
+from transformers import AutoProcessor, AutoTokenizer
 
 
 def load_corpus(corpus_path: str) -> list[str]:
@@ -78,23 +78,26 @@ def _normalize_merges(merges: list) -> list[tuple[str, str]]:
 
 
 def expand_tokenizer(
-    base_tokenizer_id: str,
+    base_model_id: str,
     corpus_path: str,
     output_dir: str,
     new_vocab_size: int,
 ):
     """
-    Expand a HuggingFace tokenizer with new tokens from a corpus.
+    Expand a SmolVLM2 processor with new tokens from a corpus.
 
     Args:
-        base_tokenizer_id: HuggingFace model ID or local path to base tokenizer
+        base_model_id: HuggingFace model ID or local path to base model
         corpus_path: Path to text file with new language (Vietnamese) corpus
-        output_dir: Directory to save expanded tokenizer
+        output_dir: Directory to save expanded processor
         new_vocab_size: Target vocabulary size after expansion
     """
-    # Load base tokenizer
-    print(f"Loading base tokenizer: {base_tokenizer_id}")
-    base_tokenizer = AutoTokenizer.from_pretrained(base_tokenizer_id)
+    # Load base processor (tokenizer + image processor + chat template).
+    # Expanding from the full SmolVLM2 processor keeps <image>=49190 and all
+    # special tokens, and makes AutoProcessor.from_pretrained(output_dir) work.
+    print(f"Loading base processor: {base_model_id}")
+    base_processor = AutoProcessor.from_pretrained(base_model_id)
+    base_tokenizer = base_processor.tokenizer
     base_vocab_size = len(base_tokenizer)
 
     print(f"Base tokenizer vocab size: {base_vocab_size}")
@@ -115,11 +118,11 @@ def expand_tokenizer(
     if len(corpus) == 0:
         raise ValueError("Corpus is empty. Please check the corpus path.")
 
-    # Save a full copy of the base tokenizer (keeps chat template, special
-    # tokens map, tokenizer_config.json, etc.) — we then patch tokenizer.json
+    # Save a full copy of the base processor (keeps tokenizer, image processor,
+    # chat template, etc.) — we then patch tokenizer.json
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
-    base_tokenizer.save_pretrained(output_dir)
+    base_processor.save_pretrained(output_dir)
 
     # Train a Vietnamese tokenizer to learn candidate tokens and merges.
     # Train up to the full target size so there are enough candidates even
@@ -165,30 +168,64 @@ def expand_tokenizer(
     with open(output_path / "new_vietnamese_tokens.json", "w", encoding="utf-8") as f:
         json.dump(new_tokens, f, ensure_ascii=False, indent=2)
 
-    # Verify the expanded tokenizer loads and base IDs are unchanged
-    expanded_tokenizer = AutoTokenizer.from_pretrained(output_dir)
-    sample = corpus[0][:200]
-    base_ids = base_tokenizer.encode(sample)
-    expanded_ids = expanded_tokenizer.encode(sample)
+    verify_expansion(output_dir, base_tokenizer, corpus, new_tokens)
 
-    print(f"Expanded tokenizer saved to: {output_dir}")
-    print(f"Final vocab size: {len(expanded_tokenizer)}")
-    print(f"New Vietnamese tokens added: {len(new_tokens)}")
-    print(f"Sample encoding: {len(base_ids)} tokens (base) -> "
-          f"{len(expanded_ids)} tokens (expanded)")
-    print("Note: resize the model embeddings with "
-          "model.resize_token_embeddings(len(tokenizer)) before training.")
+
+def verify_expansion(output_dir, base_tokenizer, corpus, new_tokens):
+    """Fail loudly if the expansion broke anything the training run relies on."""
+    from transformers import AutoProcessor
+
+    processor = AutoProcessor.from_pretrained(output_dir)
+    tok = processor.tokenizer
+
+    # 1. Special tokens keep their IDs (image token especially)
+    for special in base_tokenizer.all_special_tokens:
+        base_id = base_tokenizer.convert_tokens_to_ids(special)
+        new_id = tok.convert_tokens_to_ids(special)
+        assert new_id == base_id, f"special token {special!r} moved: {base_id} -> {new_id}"
+    image_id = tok.convert_tokens_to_ids("<image>")
+    assert image_id == base_tokenizer.convert_tokens_to_ids("<image>"), \
+        f"<image> id changed to {image_id}"
+    print(f"OK: {len(base_tokenizer.all_special_tokens)} special tokens unchanged, "
+          f"<image>={image_id}")
+
+    # 2. Vietnamese roundtrip is lossless (byte-level BPE must reconstruct exactly)
+    for text in corpus[:200]:
+        decoded = tok.decode(tok.encode(text, add_special_tokens=False))
+        assert decoded == text, f"roundtrip mismatch: {text[:60]!r} -> {decoded[:60]!r}"
+    print("OK: Vietnamese encode/decode roundtrip lossless (200 samples)")
+
+    # 3. Fertility improvement on held-out text (tail of corpus, unseen order)
+    held_out = corpus[-1000:]
+    words = sum(len(t.split()) for t in held_out)
+    base_toks = sum(len(base_tokenizer.encode(t, add_special_tokens=False)) for t in held_out)
+    new_toks = sum(len(tok.encode(t, add_special_tokens=False)) for t in held_out)
+    print(f"Fertility (tokens/word): base={base_toks / words:.2f} "
+          f"-> expanded={new_toks / words:.2f} "
+          f"({100 * (1 - new_toks / base_toks):.1f}% fewer tokens)")
+
+    # 4. English tokenization unchanged (appended merges have lowest priority)
+    english = ("The quick brown fox jumps over the lazy dog. "
+               "Vision language models process images and text together.")
+    if tok.encode(english) != base_tokenizer.encode(english):
+        print("WARNING: English tokenization changed slightly — inspect before training.")
+    else:
+        print("OK: English tokenization identical to base")
+
+    print(f"Expanded processor saved to: {output_dir}")
+    print(f"Final vocab size: {len(tok)} ({len(new_tokens)} new Vietnamese tokens)")
+    print("Training will resize embeddings automatically via --tokenizer_name_or_path.")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Expand tokenizer vocabulary with Vietnamese tokens"
+        description="Expand SmolVLM2 processor vocabulary with Vietnamese tokens"
     )
     parser.add_argument(
-        "--base_tokenizer",
+        "--base_model",
         type=str,
-        required=True,
-        help="Base tokenizer (HuggingFace model ID or local path)"
+        default="HuggingFaceTB/SmolVLM2-500M-Video-Instruct",
+        help="Base model (HuggingFace model ID or local path, default: SmolVLM2-500M-Video-Instruct)"
     )
     parser.add_argument(
         "--corpus",
@@ -200,19 +237,19 @@ def main():
         "--output_dir",
         type=str,
         required=True,
-        help="Directory to save expanded tokenizer"
+        help="Directory to save expanded processor"
     )
     parser.add_argument(
         "--new_vocab_size",
         type=int,
-        default=57000,
-        help="Target vocabulary size after expansion (default: 57000)"
+        default=57344,
+        help="Target vocabulary size after expansion (default: 57344)"
     )
 
     args = parser.parse_args()
 
     expand_tokenizer(
-        base_tokenizer_id=args.base_tokenizer,
+        base_model_id=args.base_model,
         corpus_path=args.corpus,
         output_dir=args.output_dir,
         new_vocab_size=args.new_vocab_size,
