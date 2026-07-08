@@ -48,7 +48,7 @@ hf download HuggingFaceM4/the_cauldron --repo-type=dataset --include "textvqa/*"
 Then convert:
 
 ```bash
-export DATA_FOLDER=/path/to/vietnamese_data
+export DATA_FOLDER=./vision/experiments/pretraining/vietnamese/data
 for src in viocrvqa openvivqa uitviic viwiki; do
   python vision/scripts/data/convert_to_llava_json.py --source $src --output_dir $DATA_FOLDER
 done
