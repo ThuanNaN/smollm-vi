@@ -1,76 +1,69 @@
 #!/bin/bash
-# Vietnamese SmolVLM Stage 1 Training - Single GPU Setup
-# For 1x GPU with 24GB VRAM
-# Uses the smolvlm2 training infrastructure (HF Trainer based).
+# Vietnamese SmolVLM2 stage-1 training — 1x GPU (24GB), smolvlm2 stack.
 #
-# Note: the smolvlm2 trainer consumes a data *mixture* yaml
-# (see vision/smolvlm2/scripts/mixtures/*.yaml for the format: a list of
-# entries with json_path / path / modality / sampling_strategy) plus a
-# data_folder root — not raw webdataset shards.
+# Prerequisites (run once, in order):
+#   1. python vision/scripts/data/convert_to_llava_json.py --source ...   (all 5 sources)
+#   2. python vision/scripts/tokenizer/build_tokenizer_corpus.py --output ...
+#   3. python vision/scripts/tokenizer/expand_tokenizer.py --corpus ... --output_dir $TOKENIZER_DIR
+#
+# Usage:
+#   DATA_FOLDER=/path/to/vietnamese_data TOKENIZER_DIR=/path/to/expanded_tokenizer ./train_1gpu.sh
+#   Optional: OUTPUT_DIR=..., MAX_STEPS=20 (smoke test), RESUME=1
 
-set -e
+set -euo pipefail
 
-# Repo root derived from this script's location
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 
-# ---- User-defined paths (edit these) ----
-DATA_MIXTURE="${DATA_MIXTURE:-$REPO_ROOT/vision/smolvlm2/scripts/mixtures/vietnamese_mixture.yaml}"
-DATA_FOLDER="${DATA_FOLDER:-/path/to/vietnamese_data}"
-OUTPUT_DIR="${OUTPUT_DIR:-$REPO_ROOT/checkpoints/vietnamese_stage1_1gpu}"
+DATA_FOLDER="${DATA_FOLDER:?Set DATA_FOLDER to the converted-data root}"
+TOKENIZER_DIR="${TOKENIZER_DIR:?Set TOKENIZER_DIR to the expanded processor dir}"
+OUTPUT_DIR="${OUTPUT_DIR:-$REPO_ROOT/checkpoints/vietnamese_stage1}"
+MAX_STEPS="${MAX_STEPS:--1}"   # -1 = full epoch; set e.g. 20 for a smoke test
 
-echo "=========================================="
-echo "Vietnamese SmolVLM Stage 1 Training"
-echo "=========================================="
-echo "GPUs: 1"
-echo "Data mixture: $DATA_MIXTURE"
-echo "Output dir: $OUTPUT_DIR"
-echo "Date: $(date)"
-echo ""
+MIXTURE_TEMPLATE="$REPO_ROOT/vision/smolvlm2/scripts/mixtures/vietnamese_stage1.yaml"
+mkdir -p "$OUTPUT_DIR"
+MIXTURE="$OUTPUT_DIR/mixture_resolved.yaml"
+sed "s|__DATA_FOLDER__|$DATA_FOLDER|g" "$MIXTURE_TEMPLATE" > "$MIXTURE"
 
-# Check GPU availability
-echo "Checking GPU..."
+echo "=== Vietnamese SmolVLM2 stage-1 ==="
+echo "data:      $DATA_FOLDER"
+echo "tokenizer: $TOKENIZER_DIR"
+echo "output:    $OUTPUT_DIR"
 nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv
-echo ""
-
-# Set environment variables
-export CUDA_DEVICE_MAX_CONNECTIONS=1
-export PYTHONFAULTHANDLER=1
 
 cd "$REPO_ROOT/vision/smolvlm2"
-export PYTHONPATH="$REPO_ROOT/vision/smolvlm2:$PYTHONPATH"
+export PYTHONPATH="$REPO_ROOT/vision/smolvlm2:${PYTHONPATH:-}"
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-# Run training using smolvlm2
-echo "Starting training on single GPU..."
 python smolvlm/train/train.py \
-    --model_name_or_path HuggingFaceTB/SmolVLM-500M-Instruct \
-    --data_mixture "$DATA_MIXTURE" \
+    --model_name_or_path HuggingFaceTB/SmolVLM2-500M-Video-Instruct \
+    --tokenizer_name_or_path "$TOKENIZER_DIR" \
+    --data_mixture "$MIXTURE" \
     --data_folder "$DATA_FOLDER" \
     --output_dir "$OUTPUT_DIR" \
     --num_train_epochs 1 \
-    --per_device_train_batch_size 2 \
-    --per_device_eval_batch_size 4 \
-    --gradient_accumulation_steps 4 \
-    --eval_strategy "no" \
-    --save_strategy "steps" \
+    --max_steps "$MAX_STEPS" \
+    --per_device_train_batch_size 1 \
+    --gradient_accumulation_steps 8 \
+    --eval_strategy no \
+    --save_strategy steps \
     --save_steps 500 \
     --save_total_limit 2 \
-    --learning_rate 0.0001 \
+    --learning_rate 1e-4 \
     --weight_decay 0.1 \
     --warmup_steps 100 \
-    --lr_scheduler_type "cosine" \
+    --lr_scheduler_type cosine \
     --logging_steps 5 \
-    --model_max_length 512 \
-    --image_target_size 512 \
+    --model_max_length 2048 \
+    --image_target_size 1536 \
     --gradient_checkpointing True \
-    --fp16 False \
     --bf16 True \
     --peft_enable True \
     --lora_rank 16 \
-    --lora_alpha 16 \
+    --lora_alpha 32 \
     --lora_dropout 0.1 \
-    --target_modules q_proj v_proj
+    --target_modules q_proj k_proj v_proj o_proj \
+    --lora_modules_to_save embed_tokens lm_head \
+    --report_to none
 
-echo ""
-echo "Training complete!"
-echo "Check checkpoints in: $OUTPUT_DIR"
+echo "Done. Checkpoints in: $OUTPUT_DIR"

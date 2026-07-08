@@ -1,0 +1,38 @@
+# Vietnamese stage-1 mixture. __DATA_FOLDER__ is replaced by train_1gpu.sh.
+# Shares: ~55% Vietnamese multimodal / ~30% English (cauldron) / ~15% Vi text.
+vietnamese_stage1:
+  - name: viocrvqa
+    json_path: __DATA_FOLDER__/viocrvqa_train.json
+    path: viocrvqa
+    modality: image
+    sampling_strategy: all           # ~19.7k multi-turn conversations
+  - name: openvivqa
+    json_path: __DATA_FOLDER__/openvivqa_train.json
+    path: openvivqa
+    modality: image
+    sampling_strategy: all           # ~9.1k
+  - name: uitviic
+    json_path: __DATA_FOLDER__/uitviic_train.json
+    path: uitviic
+    modality: image
+    sampling_strategy: all           # ~13.5k
+  - name: cauldron_vqav2
+    json_path: __DATA_FOLDER__/cauldron_vqav2.json
+    path: cauldron/vqav2
+    modality: image
+    sampling_strategy: random:15%    # ~12k of 82.7k
+  - name: cauldron_ocrvqa
+    json_path: __DATA_FOLDER__/cauldron_ocrvqa.json
+    path: cauldron/ocrvqa
+    modality: image
+    sampling_strategy: random:4%     # ~6.6k of 165.7k
+  - name: cauldron_textvqa
+    json_path: __DATA_FOLDER__/cauldron_textvqa.json
+    path: cauldron/textvqa
+    modality: image
+    sampling_strategy: random:25%    # ~5.5k of 22k
+  - name: viwiki_text
+    json_path: __DATA_FOLDER__/viwiki_text.json
+    path: ""
+    modality: text
+    sampling_strategy: first:11000   # ~15% text share, per SmolVLM paper ~14%
