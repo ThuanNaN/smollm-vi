@@ -143,6 +143,18 @@ def expand_tokenizer(
     merges_are_pairs = bool(merges) and not isinstance(merges[0], str)
 
     added_token_ids = [t["id"] for t in tokenizer_data.get("added_tokens", [])]
+
+    # tokenizers' AddedVocabulary recomputes each added-token's effective id as
+    # len(model.vocab) + its position, ignoring the JSON "id" field, for any
+    # added token not already present as a value in model.vocab. SmolVLM2's
+    # special tokens (e.g. <image>, <end_of_utterance>) live only in
+    # added_tokens, not in vocab — so appending new entries to vocab below
+    # would otherwise shift every special token's id by the count added.
+    # Backfilling them into vocab first makes them already-resolved, so the
+    # library leaves their ids untouched.
+    for t in tokenizer_data.get("added_tokens", []):
+        vocab.setdefault(t["content"], t["id"])
+
     next_id = max([*vocab.values(), *added_token_ids, -1]) + 1
     known_tokens = set(vocab) | {t["content"] for t in tokenizer_data.get("added_tokens", [])}
 
