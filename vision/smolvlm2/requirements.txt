@@ -1,0 +1,46 @@
+# Pinned, verified-working environment for vision/smolvlm2 training + the
+# Vietnamese eval harness (vision/evaluation/vietnamese). Install with:
+#   uv pip install -r requirements.txt
+#   uv pip install -e .   (from vision/smolvlm2, installs the smolvlm package)
+#
+# transformers==4.50.0 is a narrow, deliberately pinned window, not a lower
+# bound: it is the first release where `smolvlm` is a registered AutoConfig
+# model_type (needed to load HuggingFaceTB/SmolVLM2-*'s config.json), while
+# still exposing the pre-refactor `transformers.models.idefics3` internals
+# (IDEFICS3_INPUTS_DOCSTRING, Idefics3BaseModelOutputWithPast) that this
+# repo's smolvlm/model/modeling_smolvlm.py subclasses directly. Versions
+# below ~4.50 don't know the smolvlm model_type; versions above it removed
+# those Idefics3 internals when transformers added its own native SmolVLM
+# model. Do not bump this without re-verifying both constraints.
+#
+# Training requires --disable_flash_attn2 True unless flash-attn is
+# separately installed (no prebuilt wheel on PyPI for arbitrary
+# torch/CUDA/Python combos; compiling from source is slow and was skipped
+# here) — this falls back to eager attention (smolvlm/train/train.py),
+# which this transformers version's Idefics3VisionTransformer requires
+# anyway, since it doesn't yet support sdpa for that architecture.
+
+torch>=2.1.2
+torchvision
+transformers==4.50.0
+tokenizers==0.21.4
+peft>=0.19
+accelerate>=1.0
+datasets>=4.0
+safetensors>=0.7
+huggingface_hub>=0.36
+
+# Training-only (vision/smolvlm2/smolvlm/train)
+wandb
+ujson
+chardet
+num2words
+opencv-python-headless
+tabulate
+decord
+
+# Vietnamese eval harness (vision/evaluation/vietnamese)
+sacrebleu
+rouge_score
+pyarrow
+pytest

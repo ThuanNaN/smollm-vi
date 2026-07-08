@@ -78,18 +78,27 @@ python smolvlm/train/train.py \
 ```
 For multi-GPU/SLURM, use `scripts/train/multinode*.sh` as templates. DeepSpeed ZeRO configs live in `scripts/zero*.json`.
 
-### Vietnamese SmolVLM experiment (vision/experiments/pretraining/vietnamese)
-```bash
-cd vision/experiments/pretraining/vietnamese
-DATA_FOLDER=/path/to/vietnamese_data ./train_1gpu.sh
-```
-This wraps `vision/smolvlm2/smolvlm/train/train.py` (not `m4`) — it consumes a data *mixture* YAML (`vision/smolvlm2/scripts/mixtures/*.yaml` format: entries with `json_path`/`path`/`modality`/`sampling_strategy`) plus a `data_folder` root, not raw webdataset shards. Data prep scripts for this track live in `vision/scripts/data/` (Vietnamese Wikipedia extraction, webdataset/OCR-VQA conversion) and `vision/scripts/tokenizer/expand_tokenizer.py` (vocab expansion). Evaluation harness is in `vision/evaluation/vietnamese/`; baseline run outputs land in `evals/vietnamese/`.
+### Vietnamese SmolVLM2 experiment (vision/experiments/pretraining/vietnamese)
+Full runbook in `vision/experiments/pretraining/vietnamese/README.md`. Pipeline:
+`vision/scripts/data/convert_to_llava_json.py` (HF cache → llava-JSON under
+`$DATA_FOLDER`) → `vision/scripts/tokenizer/build_tokenizer_corpus.py` +
+`expand_tokenizer.py` (SmolVLM2 vocab 49280→57344) →
+`train_1gpu.sh` (wraps `vision/smolvlm2/smolvlm/train/train.py`, mixture
+`vision/smolvlm2/scripts/mixtures/vietnamese_stage1.yaml`, LoRA +
+trainable embeddings) → `vision/evaluation/vietnamese/run_evaluation.py`
+(baseline & finetuned) + `compare_results.py`. Eval outputs land in
+`evals/vietnamese/`. `vision/smolvlm2/requirements.txt` pins `transformers`
+to a narrow, verified version window — see the comment at its top before
+bumping it. `vision/evaluation/vietnamese/text_baseline.py` is an older,
+separate standalone script (not part of this pipeline) still using the
+legacy `Idefics3ForConditionalGeneration` pattern directly; it predates and
+is unrelated to `run_evaluation.py`.
 
 ### Running a single eval task / test
 There is no unit-test suite in this repo. "Testing" here means running a specific eval task:
 - LightEval: pass a single task name in the `*.txt` suite file or via `--tasks` to `lighteval`.
 - m4 eval: pass one task to `--do_tasks` in `m4/evaluation/launch.py`.
-- Vietnamese eval: `python vision/evaluation/vietnamese/run_evaluation.py` (see `tasks.py` for individual task definitions, `baseline_eval.py`/`text_baseline.py` for baseline-only runs).
+- Vietnamese eval: `python vision/evaluation/vietnamese/run_evaluation.py --tasks <name>` (see `tasks.py` for the `TASKS` dict of loaders); metrics unit tests via `pytest vision/evaluation/vietnamese/test_metrics.py`.
 
 ## Architecture notes
 

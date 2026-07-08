@@ -199,8 +199,8 @@ def prepare_model(
     # logger.info("Instantiating SmolVLMForConditionalGeneration with attention impl=%s", attn_impl)
 
     if training_args.disable_flash_attn2:
-        config._attn_implementation = "sdpa"
-    else: 
+        config._attn_implementation = "eager"
+    else:
         config._attn_implementation = "flash_attention_2"
 
     if model_args.frames_per_clip > 1:

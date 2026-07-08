@@ -5,7 +5,8 @@ import logging
 import torch.nn as nn
 from typing import Optional, Dict, Any, List
 from transformers import Trainer, PreTrainedModel
-from transformers.trainer import get_parameter_names, ALL_LAYERNORM_LAYERS
+from transformers.trainer import get_parameter_names
+from transformers.pytorch_utils import ALL_LAYERNORM_LAYERS
 from transformers.trainer_utils import PREFIX_CHECKPOINT_DIR
 
 logger = logging.getLogger(__name__)
