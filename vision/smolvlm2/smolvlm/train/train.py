@@ -222,6 +222,38 @@ def prepare_model(
     return model
 
 
+def resize_embeddings_for_expanded_tokenizer(model, model_args):
+    """If an expanded tokenizer is configured, grow the embedding matrix and
+    mean-initialize each new row from the base-tokenizer encoding of the new
+    token's surface text. Applies to both embed_tokens and lm_head (untied)."""
+    if not model_args.tokenizer_name_or_path:
+        return
+    from transformers import AutoTokenizer
+    new_tok = AutoTokenizer.from_pretrained(model_args.tokenizer_name_or_path)
+    old_vocab = model.get_input_embeddings().weight.shape[0]
+    new_len = len(new_tok)
+    if new_len <= old_vocab:
+        logger.info("Tokenizer size %d <= embedding rows %d; no resize needed.",
+                    new_len, old_vocab)
+        return
+    base_tok = AutoTokenizer.from_pretrained(model_args.model_name_or_path)
+    logger.info("Resizing embeddings %d -> %d and mean-initializing %d new rows",
+                old_vocab, new_len, new_len - old_vocab)
+    model.resize_token_embeddings(new_len)
+    with torch.no_grad():
+        in_emb = model.get_input_embeddings().weight
+        out_emb = model.get_output_embeddings().weight
+        for idx in range(old_vocab, new_len):
+            text = new_tok.decode([idx])
+            sub_ids = base_tok.encode(text, add_special_tokens=False)
+            sub_ids = [s for s in sub_ids if s < old_vocab]
+            if not sub_ids:
+                continue  # keep HF's default init for undecodable byte fragments
+            ids = torch.tensor(sub_ids, device=in_emb.device)
+            in_emb[idx] = in_emb[ids].mean(dim=0)
+            out_emb[idx] = out_emb[ids].mean(dim=0)
+
+
 def apply_peft(model: torch.nn.Module, training_args: TrainingArguments) -> torch.nn.Module:
     """
     Applies LoRA/PEFT if training_args.peft_enable is True.
@@ -251,6 +283,7 @@ def apply_peft(model: torch.nn.Module, training_args: TrainingArguments) -> torc
         lora_alpha=training_args.lora_alpha,
         lora_dropout=training_args.lora_dropout,
         target_modules=peft_target_modules,
+        modules_to_save=training_args.lora_modules_to_save or None,
         bias=training_args.lora_bias,  # "none"/"all"/"lora_only"
         task_type="CAUSAL_LM",
     )
@@ -310,6 +343,7 @@ def train():
     # 1) Prepare model + config
     logger.info("Preparing model + config (possibly with bitsandbytes) ...")
     model = prepare_model(model_args, training_args)
+    resize_embeddings_for_expanded_tokenizer(model, model_args)
 
     # 2) Freeze/unfreeze based on user flags, plus prints
     set_trainable_params(model, training_args)
@@ -320,7 +354,7 @@ def train():
 
     # 4) Possibly apply LoRA/PEFT
     if training_args.peft_enable:
-        model = apply_peft_if_needed(model, training_args)
+        model = apply_peft(model, training_args)
 
     # 5) Load processor (tokenizer + image processor, etc.)
     #import ipdb; ipdb.set_trace()
@@ -328,7 +362,7 @@ def train():
     if model_args.frames_per_clip > 1:
         from smolvlm.model.processing_smollmm import SmolLMMProcessor
         processor = SmolLMMProcessor.from_pretrained(
-            model_args.model_name_or_path,
+            model_args.tokenizer_name_or_path or model_args.model_name_or_path,
             cache_dir=training_args.cache_dir,
             model_max_length=training_args.model_max_length,
             padding_side=model_args.padding_side,
@@ -336,7 +370,7 @@ def train():
         )
     else:
         processor = AutoProcessor.from_pretrained(
-            model_args.model_name_or_path,
+            model_args.tokenizer_name_or_path or model_args.model_name_or_path,
             cache_dir=training_args.cache_dir,
             model_max_length=training_args.model_max_length,
             padding_side=model_args.padding_side,

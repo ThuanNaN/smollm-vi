@@ -23,6 +23,12 @@ class ModelArguments:
         default="right", 
         metadata={"help": "Tokenizer padding side. Usually 'right' for LLMs."}
     )
+    tokenizer_name_or_path: Optional[str] = field(
+        default=None,
+        metadata={"help": "Load processor/tokenizer from this path instead of "
+                          "model_name_or_path (e.g. an expanded-vocab processor). "
+                          "Embeddings are resized + mean-initialized automatically."}
+    )
     apply_diagonal_block_attention: bool = field(
         default=False, 
         metadata={"help": "Apply diagonal cross attention. Important when doing sequence pack."}
@@ -144,6 +150,11 @@ class TrainingArguments(transformers.TrainingArguments):
     use_dora: bool = field(
         default=False,
         metadata={"help": "Use DoRA if needed (experimental)."})
+    lora_modules_to_save: List[str] = field(
+        default_factory=lambda: [],
+        metadata={"help": "Modules to fully train and save alongside LoRA "
+                          "(e.g. embed_tokens lm_head after vocab expansion)."}
+    )
     vision_tower_lr: float = field(
         default=2e-6,
         metadata={"help": "Learning rate for vision tower submodule if tune_vision_tower=True."}
