@@ -103,6 +103,7 @@ torchrun --standalone --nproc_per_node="$NUM_GPUS" \
     --target_modules q_proj k_proj v_proj o_proj \
     --lora_modules_to_save embed_tokens lm_head \
     --disable_flash_attn2 "$DISABLE_FLASH_ATTN2" \
-    --report_to none
+    --report_to wandb \
+    --run_name vietnamese_stage1_3gpu
 
 echo "Done. Checkpoints in: $OUTPUT_DIR"
