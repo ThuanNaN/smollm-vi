@@ -47,8 +47,8 @@ python smolvlm/train/train.py \
     --output_dir "$OUTPUT_DIR" \
     --num_train_epochs 1 \
     --max_steps "$MAX_STEPS" \
-    --per_device_train_batch_size 1 \
-    --gradient_accumulation_steps 8 \
+    --per_device_train_batch_size 8 \
+    --gradient_accumulation_steps 4 \
     --eval_strategy no \
     --save_strategy steps \
     --save_steps 500 \
