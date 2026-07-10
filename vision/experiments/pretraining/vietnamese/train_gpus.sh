@@ -30,10 +30,10 @@ MAX_STEPS="${MAX_STEPS:--1}"   # -1 = full epoch; set e.g. 20 for a smoke test
 DISABLE_FLASH_ATTN2="${DISABLE_FLASH_ATTN2:-True}"   # True = eager attention (no flash-attn needed)
 
 NUM_GPUS="${NUM_GPUS:-3}"
-PER_DEVICE_BATCH="${PER_DEVICE_BATCH:-4}"
+PER_DEVICE_BATCH="${PER_DEVICE_BATCH:-8}"
 # Global batch = PER_DEVICE_BATCH * NUM_GPUS * GRAD_ACCUM.
-# Default 1*3*3 = 9, matching the 1-GPU script's effective batch of 8 (1*8).
-GRAD_ACCUM="${GRAD_ACCUM:-3}"
+# Default 8*3*4 = 96, matching the 1-GPU script's effective batch of 8 (1*8).
+GRAD_ACCUM="${GRAD_ACCUM:-4}"
 
 # Resolve to absolute paths: torchrun launches train.py with CWD=vision/smolvlm2
 # below, so any relative DATA_FOLDER/TOKENIZER_DIR would resolve against the wrong dir.
@@ -97,10 +97,10 @@ torchrun --standalone --nproc_per_node="$NUM_GPUS" \
     --dataloader_drop_last True \
     --ddp_find_unused_parameters False \
     --peft_enable True \
-    --lora_rank 16 \
-    --lora_alpha 32 \
+    --lora_rank 32 \
+    --lora_alpha 64 \
     --lora_dropout 0.1 \
-    --target_modules q_proj k_proj v_proj o_proj \
+    --target_modules q_proj k_proj v_proj o_proj gate_proj up_proj out_proj \
     --lora_modules_to_save embed_tokens lm_head \
     --disable_flash_attn2 "$DISABLE_FLASH_ATTN2" \
     --report_to wandb \
