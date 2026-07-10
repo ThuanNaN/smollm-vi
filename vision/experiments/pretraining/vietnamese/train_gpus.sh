@@ -75,7 +75,7 @@ torchrun --standalone --nproc_per_node="$NUM_GPUS" \
     --data_mixture "$MIXTURE" \
     --data_folder "$DATA_FOLDER" \
     --output_dir "$OUTPUT_DIR" \
-    --num_train_epochs 1 \
+    --num_train_epochs 5 \
     --max_steps "$MAX_STEPS" \
     --per_device_train_batch_size "$PER_DEVICE_BATCH" \
     --gradient_accumulation_steps "$GRAD_ACCUM" \

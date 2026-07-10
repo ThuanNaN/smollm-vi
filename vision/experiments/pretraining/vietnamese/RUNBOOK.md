@@ -104,7 +104,7 @@ TOKENIZER_DIR=$DATA_FOLDER/tokenizer_vi \
 cd vision/evaluation/vietnamese
 python run_evaluation.py --run_name finetuned --num_samples 200 \
     --tasks viocrvqa_test,openvivqa_dev,uitviic_valid,uitviic_test \
-    --adapter_path <repo>/checkpoints/vietnamese_stage1/checkpoint-<last> \
+    --adapter_path /home/thuandn/Repository/smollm-vi/checkpoints/vietnamese_stage1_3gpu/checkpoint-2164 \
     --processor_path $DATA_FOLDER/tokenizer_vi
 ```
 
