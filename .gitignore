@@ -167,3 +167,4 @@ TODO.md
 .vscode
 vision/experiments/pretraining/vietnamese/data
 vision/smolvlm2/wandb/
+checkpoints/
