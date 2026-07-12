@@ -278,12 +278,31 @@ def apply_peft(model: torch.nn.Module, training_args: TrainingArguments) -> torc
             use_gradient_checkpointing=training_args.gradient_checkpointing
         )
 
+    # Two ways to handle vocab-expansion embeddings:
+    #  * trainable_token_start >= 0: train ONLY the new rows [start:vocab) of
+    #    embed_tokens AND lm_head (untied model, so both must be listed), keeping
+    #    every base-token embedding frozen. Far fewer trainable params, no base
+    #    forgetting, and PEFT stores the new rows' absolute values (index_copy at
+    #    forward), so eval's resize->from_pretrained overwrites them correctly.
+    #  * otherwise: fall back to lora_modules_to_save (fully train those modules).
+    modules_to_save = training_args.lora_modules_to_save or None
+    trainable_token_indices = None
+    if training_args.trainable_token_start >= 0:
+        vocab_size = model.get_input_embeddings().weight.shape[0]
+        new_rows = list(range(training_args.trainable_token_start, vocab_size))
+        trainable_token_indices = {"embed_tokens": new_rows, "lm_head": new_rows}
+        modules_to_save = None  # mutually exclusive with trainable_token_indices
+        logger.info("Training only new token rows [%d:%d) of embed_tokens + lm_head "
+                    "(%d rows); base tokens frozen.",
+                    training_args.trainable_token_start, vocab_size, len(new_rows))
+
     lora_config = LoraConfig(
         r=training_args.lora_rank,
         lora_alpha=training_args.lora_alpha,
         lora_dropout=training_args.lora_dropout,
         target_modules=peft_target_modules,
-        modules_to_save=training_args.lora_modules_to_save or None,
+        modules_to_save=modules_to_save,
+        trainable_token_indices=trainable_token_indices,
         bias=training_args.lora_bias,  # "none"/"all"/"lora_only"
         task_type="CAUSAL_LM",
     )

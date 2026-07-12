@@ -74,20 +74,29 @@ complete:
 
 ```bash
 cd vision/evaluation/vietnamese
-python run_evaluation.py --run_name baseline --num_samples 200 \
+python run_evaluation.py --run_name baseline --num_samples 2000 \
     --tasks viocrvqa_test,openvivqa_dev,uitviic_valid,uitviic_test
 cd -
 ```
 
-## 4. Train (~9.6k steps / 1 epoch on 1x24GB)
+## 4. Train (2 epochs; 3x24GB GPU via `train_gpus.sh`, or 1x24GB via `train_1gpu.sh`)
+
+The train scripts now **default `DATA_FOLDER`/`TOKENIZER_DIR`** to the in-repo
+locations produced by steps 1-2, so no env vars are needed:
 
 ```bash
-TOKENIZER_DIR=$DATA_FOLDER/tokenizer_vi \
-./vision/experiments/pretraining/vietnamese/train_1gpu.sh
+./vision/experiments/pretraining/vietnamese/train_gpus.sh      # 3-GPU DDP
+# or: ./vision/experiments/pretraining/vietnamese/train_1gpu.sh  # single GPU
 ```
 
-- Smoke test first on an unfamiliar environment:
-  `MAX_STEPS=20 TOKENIZER_DIR=... ./train_1gpu.sh`
+- Trains **only the 8,064 new Vietnamese token rows** of `embed_tokens` +
+  `lm_head` (PEFT `trainable_token_indices`, base tokens frozen) plus LoRA on
+  attention/MLP — ~31M trainable params. This avoids the base-vocab forgetting
+  and overtraining that fully training embed+lm_head for 5 epochs caused.
+- Checkpoints every 250 steps, `--save_total_limit 8` — eval several and keep
+  the best (embeddings can overtrain even here).
+- Smoke test first on an unfamiliar environment: `MAX_STEPS=20 ./train_gpus.sh`
+- Override paths only if your data lives elsewhere: `DATA_FOLDER=/path ./train_gpus.sh`
 - More VRAM than 24GB: raise `--per_device_train_batch_size` and lower
   `--gradient_accumulation_steps` proportionally (keep effective batch = 8)
   by editing `train_1gpu.sh` directly — faster wall-clock for the same
@@ -102,7 +111,7 @@ TOKENIZER_DIR=$DATA_FOLDER/tokenizer_vi \
 
 ```bash
 cd vision/evaluation/vietnamese
-python run_evaluation.py --run_name finetuned --num_samples 200 \
+python run_evaluation.py --run_name finetuned --num_samples 2000 \
     --tasks viocrvqa_test,openvivqa_dev,uitviic_valid,uitviic_test \
     --adapter_path /home/thuandn/Repository/smollm-vi/checkpoints/vietnamese_stage1_3gpu/checkpoint-2164 \
     --processor_path $DATA_FOLDER/tokenizer_vi

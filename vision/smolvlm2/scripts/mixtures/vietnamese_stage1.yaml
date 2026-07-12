@@ -35,4 +35,4 @@ vietnamese_stage1:
     json_path: __DATA_FOLDER__/viwiki_text.json
     path: ""
     modality: text
-    sampling_strategy: first:11000   # ~15% text share, per SmolVLM paper ~14%
+    sampling_strategy: first:25000   # ~25% text share — more signal for the new Vietnamese embeddings

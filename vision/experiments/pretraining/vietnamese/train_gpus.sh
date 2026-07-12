@@ -23,18 +23,20 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 
-DATA_FOLDER="${DATA_FOLDER:?Set DATA_FOLDER to the converted-data root}"
-TOKENIZER_DIR="${TOKENIZER_DIR:?Set TOKENIZER_DIR to the expanded processor dir}"
-OUTPUT_DIR="${OUTPUT_DIR:-$REPO_ROOT/checkpoints/vietnamese_stage1_3gpu}"
+# Default to the canonical in-repo locations (produced by steps 1-2 of the
+# RUNBOOK); override via env only if your data/tokenizer live elsewhere.
+DATA_FOLDER="${DATA_FOLDER:-$SCRIPT_DIR/data}"
+TOKENIZER_DIR="${TOKENIZER_DIR:-$DATA_FOLDER/tokenizer_vi}"
+OUTPUT_DIR="${OUTPUT_DIR:-$REPO_ROOT/checkpoints/vietnamese_stage1_3gpu_v2}"
 MAX_STEPS="${MAX_STEPS:--1}"   # -1 = full epoch; set e.g. 20 for a smoke test
-DISABLE_FLASH_ATTN2="${DISABLE_FLASH_ATTN2:-True}"   # True = eager attention (no flash-attn needed)
+DISABLE_FLASH_ATTN2="${DISABLE_FLASH_ATTN2:-False}"   # True = eager attention (no flash-attn needed)
 
 NUM_GPUS="${NUM_GPUS:-3}"
-PER_DEVICE_BATCH="${PER_DEVICE_BATCH:-8}"
+PER_DEVICE_BATCH="${PER_DEVICE_BATCH:-4}"
 # Global batch = PER_DEVICE_BATCH * NUM_GPUS * GRAD_ACCUM.
-# Default 8*3*4 = 96, matching the 1-GPU script's effective batch of 8 (1*8).
+# Default 4*3*4 = 48, matching the 3-GPU script's effective batch of 48 (4*3*4).
 GRAD_ACCUM="${GRAD_ACCUM:-4}"
-
+    
 # Resolve to absolute paths: torchrun launches train.py with CWD=vision/smolvlm2
 # below, so any relative DATA_FOLDER/TOKENIZER_DIR would resolve against the wrong dir.
 DATA_FOLDER="$(realpath "$DATA_FOLDER")"
@@ -75,14 +77,14 @@ torchrun --standalone --nproc_per_node="$NUM_GPUS" \
     --data_mixture "$MIXTURE" \
     --data_folder "$DATA_FOLDER" \
     --output_dir "$OUTPUT_DIR" \
-    --num_train_epochs 5 \
+    --num_train_epochs 2 \
     --max_steps "$MAX_STEPS" \
     --per_device_train_batch_size "$PER_DEVICE_BATCH" \
     --gradient_accumulation_steps "$GRAD_ACCUM" \
     --eval_strategy no \
     --save_strategy steps \
-    --save_steps 500 \
-    --save_total_limit 2 \
+    --save_steps 250 \
+    --save_total_limit 8 \
     --learning_rate 1e-4 \
     --weight_decay 0.1 \
     --warmup_steps 100 \
@@ -101,9 +103,9 @@ torchrun --standalone --nproc_per_node="$NUM_GPUS" \
     --lora_alpha 64 \
     --lora_dropout 0.1 \
     --target_modules q_proj k_proj v_proj o_proj gate_proj up_proj out_proj \
-    --lora_modules_to_save embed_tokens lm_head \
+    --trainable_token_start 49280 \
     --disable_flash_attn2 "$DISABLE_FLASH_ATTN2" \
     --report_to wandb \
-    --run_name vietnamese_stage1_3gpu
+    --run_name vietnamese_stage1_3gpu_v2
 
 echo "Done. Checkpoints in: $OUTPUT_DIR"

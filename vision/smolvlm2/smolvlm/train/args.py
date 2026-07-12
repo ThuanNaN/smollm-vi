@@ -155,6 +155,14 @@ class TrainingArguments(transformers.TrainingArguments):
         metadata={"help": "Modules to fully train and save alongside LoRA "
                           "(e.g. embed_tokens lm_head after vocab expansion)."}
     )
+    trainable_token_start: int = field(
+        default=-1,
+        metadata={"help": "If >= 0, train ONLY the new token rows [start:vocab) of "
+                          "embed_tokens and lm_head via PEFT trainable_token_indices "
+                          "instead of fully training them (see lora_modules_to_save). "
+                          "Keeps all base-token embeddings frozen. For SmolVLM2 vocab "
+                          "expansion, set to the original vocab size (e.g. 49280)."}
+    )
     vision_tower_lr: float = field(
         default=2e-6,
         metadata={"help": "Learning rate for vision tower submodule if tune_vision_tower=True."}

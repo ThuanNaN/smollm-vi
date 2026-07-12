@@ -18,8 +18,10 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 
-DATA_FOLDER="${DATA_FOLDER:?Set DATA_FOLDER to the converted-data root}"
-TOKENIZER_DIR="${TOKENIZER_DIR:?Set TOKENIZER_DIR to the expanded processor dir}"
+# Default to the canonical in-repo locations (produced by steps 1-2 of the
+# RUNBOOK); override via env only if your data/tokenizer live elsewhere.
+DATA_FOLDER="${DATA_FOLDER:-$SCRIPT_DIR/data}"
+TOKENIZER_DIR="${TOKENIZER_DIR:-$DATA_FOLDER/tokenizer_vi}"
 OUTPUT_DIR="${OUTPUT_DIR:-$REPO_ROOT/checkpoints/vietnamese_stage1}"
 MAX_STEPS="${MAX_STEPS:--1}"   # -1 = full epoch; set e.g. 20 for a smoke test
 DISABLE_FLASH_ATTN2="${DISABLE_FLASH_ATTN2:-True}"   # True = eager attention (no flash-attn needed)
