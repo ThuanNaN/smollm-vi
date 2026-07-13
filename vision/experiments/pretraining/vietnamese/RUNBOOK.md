@@ -113,7 +113,7 @@ locations produced by steps 1-2, so no env vars are needed:
 cd vision/evaluation/vietnamese
 python run_evaluation.py --run_name finetuned --num_samples 2000 \
     --tasks viocrvqa_test,openvivqa_dev,uitviic_valid,uitviic_test \
-    --adapter_path /home/thuandn/Repository/smollm-vi/checkpoints/vietnamese_stage1_3gpu/checkpoint-2164 \
+    --adapter_path /home/thuandn/Repository/smollm-vi/checkpoints/vietnamese_stage1_3gpu_v2/checkpoint-1436 \
     --processor_path $DATA_FOLDER/tokenizer_vi
 ```
 

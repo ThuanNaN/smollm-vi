@@ -1,13 +1,13 @@
 {
   "model": "HuggingFaceTB/SmolVLM2-500M-Video-Instruct",
-  "adapter": "/home/thuandn/Repository/smollm-vi/checkpoints/vietnamese_stage1_3gpu_v2/checkpoint-1436",
+  "adapter": "/home/thuandn/Repository/smollm-vi/checkpoints/vietnamese_stage1_3gpu_v2/checkpoint-1000",
   "processor": "vision/experiments/pretraining/vietnamese/data/tokenizer_vi",
-  "date": "2026-07-14T00:44:37.073999",
+  "date": "2026-07-14T00:24:50.892022",
   "tasks": {
     "viocrvqa_test": {
       "metrics": {
         "exact_match": 1.5,
-        "token_f1": 7.037511376241352,
+        "token_f1": 6.802566174384385,
         "n": 200
       },
       "samples": [
@@ -44,12 +44,12 @@
         {
           "i": 3,
           "question": "người nào đã thực hiện việc chuyển đổi ngôn ngữ cho cuốn sách này sang một ngôn ngữ khác để đọc",
-          "prediction": "akim yoshida, punpun dich",
+          "prediction": "2013",
           "references": [
             "punpun"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.4
+          "token_f1": 0.0
         },
         {
           "i": 4,
@@ -64,17 +64,17 @@
         {
           "i": 5,
           "question": "ai đã phát triển ý tưởng cho cuốn sách này",
-          "prediction": "mashe haimố của kòmôt",
+          "prediction": "haimốc komoto, haimõ của",
           "references": [
             "hajime komoto"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.3333333333333333
         },
         {
           "i": 6,
           "question": "tên đầy đủ và chính thức của cuốn sách này là gì theo bạn",
-          "prediction": "haimố khác kòmôt",
+          "prediction": "haimốc komoto, haimõ",
           "references": [
             "mashle tập 6 finn ames và bạn bè ìa áo đặc biệt"
           ],
@@ -104,7 +104,7 @@
         {
           "i": 9,
           "question": "có thể chỉ cho tôi biết thể loại của quyển sách này không",
-          "prediction": "haimốc komoto, haimô xe",
+          "prediction": "mashe haimốc komoto, haimô xe",
           "references": [
             "khác"
           ],
@@ -114,7 +114,7 @@
         {
           "i": 10,
           "question": "ai là tác giả chủ đạo của cuốn sách này",
-          "prediction": "nguyễn dính",
+          "prediction": "nghệ chiếc",
           "references": [
             "adam grant"
           ],
@@ -154,7 +154,7 @@
         {
           "i": 14,
           "question": "bạn có thông tin về thể loại của cuốn sách không",
-          "prediction": "nghiệp là nào 12/03/20014",
+          "prediction": "nghệ chiếc",
           "references": [
             "kỹ năng sống"
           ],
@@ -184,7 +184,7 @@
         {
           "i": 17,
           "question": "cuốn sách này được xuất bản bởi nhà in nào",
-          "prediction": "kang",
+          "prediction": "kai gui",
           "references": [
             "nhà xuất bản kim đồng"
           ],
@@ -224,7 +224,7 @@
         {
           "i": 21,
           "question": "bạn có thể cho tôi biết tựa đề của cuốn sách này không",
-          "prediction": "nhà xuất bản giao dụng viên nam",
+          "prediction": "nhà xuất bản giao dụng viên và năm",
           "references": [
             "sách giáo khoa bộ lớp 1 chân trời sáng tạo sách bài học"
           ],
@@ -334,7 +334,7 @@
         {
           "i": 32,
           "question": "cuốn sách thuộc loại gì theo bạn",
-          "prediction": "của nhà xuất bản giá nào",
+          "prediction": "của những chiếnán",
           "references": [
             "giáo khoa lớp 4"
           ],
@@ -374,7 +374,7 @@
         {
           "i": 36,
           "question": "ai là người dịch sách này sang ngôn ngữ khác",
-          "prediction": "kế xuất nhiêu của chính toán",
+          "prediction": "kếu của chính ton hình",
           "references": [
             "dĩ ninh"
           ],
@@ -414,7 +414,7 @@
         {
           "i": 40,
           "question": "cuốn sách này được phát hành bởi ai",
-          "prediction": "osamu nishio, liên vợ",
+          "prediction": "samsung",
           "references": [
             "nhà xuất bản kim đồng"
           ],
@@ -454,7 +454,7 @@
         {
           "i": 44,
           "question": "bạn có thể cho tôi biết tựa đề chính xác của cuốn sách này không",
-          "prediction": "nguyễn thi người, công nghên 8",
+          "prediction": "nguyễn thi người, công nghe 8",
           "references": [
             "công nghệ 8"
           ],
@@ -474,7 +474,7 @@
         {
           "i": 46,
           "question": "sách này được phân loại vào thể loại nào",
-          "prediction": "nguyễn thi, người của và xuất bản việt nam",
+          "prediction": "nguyễn thi, truc năm hình trung minh",
           "references": [
             "giáo khoa lớp 8"
           ],
@@ -494,7 +494,7 @@
         {
           "i": 48,
           "question": "tên gọi đầy đủ của cuốn sách này là gì vậy",
-          "prediction": "yuzuta kada, 3x3 eyes",
+          "prediction": "yuoka taada, 3x3 eyes",
           "references": [
             "3x3 eyes cô bé ba mắt tập 9"
           ],
@@ -504,7 +504,7 @@
         {
           "i": 49,
           "question": "cuốn sách này do công ty nào phát hành",
-          "prediction": "yuzuta kada, guyau rubin jc",
+          "prediction": "yuzuta kada, cu� bé mai",
           "references": [
             "nhà xuất bản trẻ"
           ],
@@ -564,17 +564,17 @@
         {
           "i": 55,
           "question": "có thể chỉ cho tôi biết thể loại của quyển sách này không",
-          "prediction": "bột giá, 12",
+          "prediction": "bột giá dùa tao",
           "references": [
             "giáo khoa lớp 12"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.28571428571428575
+          "token_f1": 0.0
         },
         {
           "i": 56,
           "question": "ai đã viết cuốn sách này",
-          "prediction": "kangu",
+          "prediction": "kuài là gì",
           "references": [
             "aka akasaka"
           ],
@@ -704,7 +704,7 @@
         {
           "i": 69,
           "question": "ai đã thực hiện công việc dịch cuốn sách này",
-          "prediction": "ky an sinh",
+          "prediction": "ky�u shirodaa",
           "references": [
             "phương quyên"
           ],
@@ -714,7 +714,7 @@
         {
           "i": 70,
           "question": "thể loại mà cuốn sách này đại diện là gì",
-          "prediction": "kyán sinh, chashiba katase",
+          "prediction": "kyán siêu nhiên",
           "references": [
             "khác"
           ],
@@ -744,17 +744,17 @@
         {
           "i": 73,
           "question": "cuốn sách này do công ty nào xuất bản",
-          "prediction": "nhà xuấtận giá của",
+          "prediction": "nhà xút bán giữ duc viên nam",
           "references": [
             "nhà xuất bản giáo dục việt nam"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.18181818181818182
+          "token_f1": 0.2857142857142857
         },
         {
           "i": 74,
           "question": "thể loại của quyển sách này là gì",
-          "prediction": "tạp hãi",
+          "prediction": "tập hái",
           "references": [
             "giáo khoa lớp 3"
           ],
@@ -814,7 +814,7 @@
         {
           "i": 80,
           "question": "tên chính thức và đầy đủ của cuốn sách này là gì",
-          "prediction": "nguyễn phong",
+          "prediction": "nguy�n phong",
           "references": [
             "muôn kiếp nhân sinh many times, many lives tập 2"
           ],
@@ -834,7 +834,7 @@
         {
           "i": 82,
           "question": "có thể nói rõ về thể loại của cuốn sách này không",
-          "prediction": "nguyễn phong",
+          "prediction": "nguy�n phong",
           "references": [
             "tôn giáo"
           ],
@@ -844,7 +844,7 @@
         {
           "i": 83,
           "question": "ai là người đã sáng tạo ra cuốn sách này",
-          "prediction": "tieng sinch",
+          "prediction": "tieng anh 12",
           "references": [
             "bộ giáo dục và đào tạo"
           ],
@@ -854,7 +854,7 @@
         {
           "i": 84,
           "question": "cuốn sách này được đặt tên làm sao",
-          "prediction": "bộ giá dù và đã da áo ta",
+          "prediction": "bột giá dù và đã da áo ta",
           "references": [
             "tiếng anh 12 tập 2 sách học sinh"
           ],
@@ -864,7 +864,7 @@
         {
           "i": 85,
           "question": "nhà xuất bản nào đã xuất bản cuốn sách này",
-          "prediction": "tíng sách những anh",
+          "prediction": "tieng sánh anh",
           "references": [
             "nhà xuất bản giáo dục việt nam"
           ],
@@ -934,7 +934,7 @@
         {
           "i": 92,
           "question": "ai đã phát triển ý tưởng cho cuốn sách này",
-          "prediction": "jin pham, xú số míngán many",
+          "prediction": "jin pham xú số míngán many",
           "references": [
             "jun phạm"
           ],
@@ -974,12 +974,12 @@
         {
           "i": 96,
           "question": "ai đã sáng tác cuốn sách này",
-          "prediction": "akira toriyama, toyotaarou",
+          "prediction": "akira toryama, toyotaarou",
           "references": [
             "akira toriyama, toyotarou"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.6666666666666666
+          "token_f1": 0.3333333333333333
         },
         {
           "i": 97,
@@ -1004,7 +1004,7 @@
         {
           "i": 99,
           "question": "ai đã thực hiện dịch cuốn sách này sang một ngôn ngữ khác",
-          "prediction": "akira toriyama, toyotaarou",
+          "prediction": "kim, kim",
           "references": [
             "barbie ayumi, admin kej"
           ],
@@ -1024,7 +1024,7 @@
         {
           "i": 101,
           "question": "tên tác giả của cuốn sách này là ai",
-          "prediction": "hoảngán, chuận quang hình, hoại và học thành loại",
+          "prediction": "hoảngán, chuận quang hình, hộng hiện, khuêu thi, nguyên theo kiến thành phí",
           "references": [
             "nhiều tác giả"
           ],
@@ -1034,12 +1034,12 @@
         {
           "i": 102,
           "question": "tựa đề chính của cuốn sách này được gọi là gì",
-          "prediction": "hoang van, chiếu biến ,huộng - khônguyên the kim phuong",
+          "prediction": "hoảng anh, chiến học biên, vàu hài có hiệu",
           "references": [
             "global success tiếng anh 11 sách bài tập"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.11764705882352941
         },
         {
           "i": 103,
@@ -1064,7 +1064,7 @@
         {
           "i": 105,
           "question": "tác giả chính của cuốn sách này là ai đó",
-          "prediction": "nhà xuất bản giữa viết",
+          "prediction": "khuyết việc",
           "references": [
             "bộ giáo dục và đào tạo"
           ],
@@ -1094,17 +1094,17 @@
         {
           "i": 108,
           "question": "thể loại mà cuốn sách này đại diện là gì",
-          "prediction": "khuyên trẻ, trí thành của 3",
+          "prediction": "khuyên trẻ, trinh của 350-425",
           "references": [
             "giáo khoa lớp 3"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.2
+          "token_f1": 0.0
         },
         {
           "i": 109,
           "question": "ai đã sáng tạo ra cuốn sách này",
-          "prediction": "nhà xuất bản giáo của và loại",
+          "prediction": "nhà xuất bản giáo dụt nam",
           "references": [
             "nhiều tác giả"
           ],
@@ -1124,7 +1124,7 @@
         {
           "i": 111,
           "question": "cuốn sách này do nhà xuất bản nào chịu trách nhiệm phát hành",
-          "prediction": "chính xác của cu�",
+          "prediction": "chính xác của và bạn",
           "references": [
             "nhà xuất bản giáo dục việt nam"
           ],
@@ -1134,17 +1134,17 @@
         {
           "i": 112,
           "question": "cuốn sách thuộc loại gì theo bạn",
-          "prediction": "nhà xuất bản giáo cuối việt nam",
+          "prediction": "nhà xuất bản giá của",
           "references": [
             "giáo khoa lớp 1"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.18181818181818182
+          "token_f1": 0.0
         },
         {
           "i": 113,
           "question": "ai đã phát minh ra nội dung của cuốn sách này",
-          "prediction": "jiu kaisen",
+          "prediction": "jiu kaisn",
           "references": [
             "gege akutami"
           ],
@@ -1154,7 +1154,7 @@
         {
           "i": 114,
           "question": "cuốn sách này được đặt tên như thế nào theo bạn",
-          "prediction": "jiu kaisen",
+          "prediction": "jiu kaisn",
           "references": [
             "chú thuật hồi chiến tập 13 biến cố shibuya sấm rền bi"
           ],
@@ -1204,12 +1204,12 @@
         {
           "i": 119,
           "question": "tựa đề chính xác của cuốn sách này là gì",
-          "prediction": "thien thành hình",
+          "prediction": "mạt nghi",
           "references": [
             "lớp học mật ngữ tuyển tập đặc biệt vol.6 hước kẻ ghép hình lớp học mật ngữ"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.1
+          "token_f1": 0.0
         },
         {
           "i": 120,
@@ -1254,7 +1254,7 @@
         {
           "i": 124,
           "question": "ai đã in ra cuốn sách này",
-          "prediction": "16",
+          "prediction": "16, vol.",
           "references": [
             "nhà xuất bản kim đồng"
           ],
@@ -1284,12 +1284,12 @@
         {
           "i": 127,
           "question": "ai là tác giả chính của cuốn sách này",
-          "prediction": "nhà xuất bản hyugan, nguyên khuề, nuko, shino",
+          "prediction": "nhà xuất bản hyuuga",
           "references": [
             "natsu hyuuga, touco shino, itsuki nanao, nekokurage"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.13333333333333333
+          "token_f1": 0.18181818181818182
         },
         {
           "i": 128,
@@ -1374,7 +1374,7 @@
         {
           "i": 136,
           "question": "cuốn sách này là sáng tác của ai",
-          "prediction": "hoang vàán, chu bản hình",
+          "prediction": "hoảngán, chuối bán hình",
           "references": [
             "nhiều tác giả"
           ],
@@ -1394,17 +1394,17 @@
         {
           "i": 138,
           "question": "ai là người phát hành cuốn sách này",
-          "prediction": "hoang vàán, chu bản hình, hoa theo chiếu bn",
+          "prediction": "hoang vàán, chu nhiên hoa (chu bản)",
           "references": [
             "nhà xuất bản giáo dục việt nam"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.125
+          "token_f1": 0.14285714285714285
         },
         {
           "i": 139,
           "question": "thể loại chính của cuốn sách là gì",
-          "prediction": "hoang vàán, chiếnhà hoa",
+          "prediction": "tiếng anh success, sach hoc sinh",
           "references": [
             "giáo khoa lớp 10"
           ],
@@ -1414,7 +1414,7 @@
         {
           "i": 140,
           "question": "ai đã phát triển ý tưởng cho cuốn sách này",
-          "prediction": "nguyễn thi",
+          "prediction": "nguyễn thi người của",
           "references": [
             "nhiều tác giả"
           ],
@@ -1424,7 +1424,7 @@
         {
           "i": 141,
           "question": "cuốn sách này được đặt tên như thế nào",
-          "prediction": "hàng chính, phát triển",
+          "prediction": "hàng chính, phát môi",
           "references": [
             "ngữ văn 10/1"
           ],
@@ -1464,7 +1464,7 @@
         {
           "i": 145,
           "question": "tựa đề chính xác của cuốn sách này là gì",
-          "prediction": "nhà xuất bản giới duc nam",
+          "prediction": "nhà xuất bản giới dư về",
           "references": [
             "hoạt động trải nghiệm,hướng nghiệp 10 bản 1"
           ],
@@ -1474,12 +1474,12 @@
         {
           "i": 146,
           "question": "nhà xuất bản nào đã giới thiệu cuốn sách này trên thị trường",
-          "prediction": "nhà xuấtất bài giả",
+          "prediction": "nhà xuất bản gì dịch viên nam",
           "references": [
             "nhà xuất bản giáo dục việt nam"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.18181818181818182
+          "token_f1": 0.5714285714285714
         },
         {
           "i": 147,
@@ -1494,7 +1494,7 @@
         {
           "i": 148,
           "question": "ai đã phát triển nội dung của cuốn sách này để giúp cho chúng ta đọc",
-          "prediction": "huynh dong, nguyễn thuán liên, giểi thiêuthy thể trân thy thu trí thành",
+          "prediction": "huynh dong, nguyễn thuán liên, giểi thiều thể",
           "references": [
             "nhiều tác giả"
           ],
@@ -1504,12 +1504,12 @@
         {
           "i": 149,
           "question": "tên chính thức và đầy đủ của cuốn sách này là gì",
-          "prediction": "huynán hàng, nguyễn thuyếi trânthy thể trí trên thieng anh 10 friends global workbook",
+          "prediction": "huynán hàng, nguyễn thuyếi trânthy thể trí",
           "references": [
             "tiếng anh 10 friends global workbook"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.5
+          "token_f1": 0.0
         },
         {
           "i": 150,
@@ -1524,17 +1524,17 @@
         {
           "i": 151,
           "question": "sách này thuộc dạng gì theo bạn",
-          "prediction": "nhà xuất bản giễn cuốn sá tích",
+          "prediction": "nhất anh 10 friends global workbook",
           "references": [
             "giáo khoa lớp 10"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.2
         },
         {
           "i": 152,
           "question": "ai là người đã đặt nền móng cho cuốn sách này",
-          "prediction": "luộc hiện",
+          "prediction": "luộc hiênn",
           "references": [
             "lưu từ hân"
           ],
@@ -1564,7 +1564,7 @@
         {
           "i": 155,
           "question": "ai đã chuyển tải nội dung cuốn sách này sang ngôn ngữ khác",
-          "prediction": "luc huong, tim doc",
+          "prediction": "luc huong",
           "references": [
             "lục hương"
           ],
@@ -1574,7 +1574,7 @@
         {
           "i": 156,
           "question": "thể loại chính của quyển sách là gì",
-          "prediction": "luốc dù các bábà, mark zuckerberg",
+          "prediction": "luốc dán, học báo cao , mark zuckerberg",
           "references": [
             "huyền bí giả tưởng kinh dị"
           ],
@@ -1594,27 +1594,27 @@
         {
           "i": 158,
           "question": "cuốn sách này có tên gọi là gì theo đúng chuẩn",
-          "prediction": "nhà xuất bản giễn cu� của việt hai",
+          "prediction": "nhà xuất bản giáo cuối viên nam",
           "references": [
             "mĩ thuật 4 bản 2"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.15384615384615385
+          "token_f1": 0.16666666666666666
         },
         {
           "i": 159,
           "question": "cuốn sách này đã được in ra bởi ai",
-          "prediction": "nhà xuất bản giễn cuối viên nam",
+          "prediction": "nhà xuất bản giới việt nam",
           "references": [
             "nhà xuất bản giáo dục việt nam"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.5714285714285714
+          "token_f1": 0.7692307692307692
         },
         {
           "i": 160,
           "question": "sách này được phân loại vào thể loại nào",
-          "prediction": "nhà xuất bản giễn việt hai",
+          "prediction": "nhà xuất bản giới và việt hoang",
           "references": [
             "giáo khoa lớp 4"
           ],
@@ -1644,7 +1644,7 @@
         {
           "i": 163,
           "question": "sách này do nhà in nào in ra",
-          "prediction": "uetsu, tran phung hang aki",
+          "prediction": "uc tsu, tran phung hang aki",
           "references": [
             "nhà xuất bản phụ nữ việt nam"
           ],
@@ -1664,7 +1664,7 @@
         {
           "i": 165,
           "question": "cuốn sách này rơi vào loại nào",
-          "prediction": "uetsu, tran phung hang aica",
+          "prediction": "uc tsu, tran phung hang aki",
           "references": [
             "tiểu thuyết"
           ],
@@ -1674,7 +1674,7 @@
         {
           "i": 166,
           "question": "ai đã phát triển nội dung của cuốn sách này để giúp cho chúng ta đọc",
-          "prediction": "ngoã sach, luat tâm thục",
+          "prediction": "ngoã sach là, luat tâm thục",
           "references": [
             "ngô sa thạch"
           ],
@@ -1684,12 +1684,12 @@
         {
           "i": 167,
           "question": "bạn có thể cho tôi biết tên chính thức của cuốn sách này không",
-          "prediction": "ngoã sach, luat tâm thục",
+          "prediction": "ngoã sach là xuất tâm thục",
           "references": [
             "luật tâm thức giải mã ma trận vũ trụ"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.14285714285714285
+          "token_f1": 0.13333333333333333
         },
         {
           "i": 168,
@@ -1704,7 +1704,7 @@
         {
           "i": 169,
           "question": "cuốn sách thuộc loại gì theo bạn",
-          "prediction": "ngo sach, luat tam thục",
+          "prediction": "ngo sach là, luat tâm thục",
           "references": [
             "khoa học vũ trụ"
           ],
@@ -1714,7 +1714,7 @@
         {
           "i": 170,
           "question": "ai đã phát triển ý tưởng cho cuốn sách này",
-          "prediction": "lánh chính, tác nhiên của nhà xuất bản, là một người được loại có thể nào đang biết và trong thành gì.",
+          "prediction": "lánh chính, tác nhiên của nam học viên và là gì , tên tiếng chiến các nhà xuất bản trong thành .",
           "references": [
             "lâm minh chánh"
           ],
@@ -1724,27 +1724,27 @@
         {
           "i": 171,
           "question": "cuốn sách này được gọi là gì theo bạn",
-          "prediction": "lánh chính, tác nhiên của nhà xuất bản, tiếng việt nam",
+          "prediction": "lánh chính, tác chinhà các nhan, dân hành cho nguội viêng nam",
           "references": [
             "tài chính cá nhân dành cho người việt nam"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.3
+          "token_f1": 0.28571428571428575
         },
         {
           "i": 172,
           "question": "nhà xuất bản nào đã phát hành cuốn sách này",
-          "prediction": "lánh chính, tác chinhà của nghiệp viêng và tiếng tin",
+          "prediction": "lánh chính, tác chinhà của nghĩa viễn nam",
           "references": [
             "nhà xuất bản phụ nữ việt nam"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.13333333333333333
         },
         {
           "i": 173,
           "question": "thể loại chính của quyển sách là gì",
-          "prediction": "lánh chiến, các nhà xuất bản, tiên người được",
+          "prediction": "lánh chiên thành",
           "references": [
             "tài chính ngân hàng"
           ],
@@ -1754,7 +1754,7 @@
         {
           "i": 174,
           "question": "tên tác giả của cuốn sách này là ai vậy",
-          "prediction": "macmillan",
+          "prediction": "macmillan, mcmillan",
           "references": [
             "malcome mann, steve tayloreknowles"
           ],
@@ -1764,7 +1764,7 @@
         {
           "i": 175,
           "question": "cuốn sách này được đặt tên như thế nào",
-          "prediction": "macmillan, mcmillan",
+          "prediction": "calomin mann, steve taylor-knowles",
           "references": [
             "destination b1 grammar and vocabulary with answer key"
           ],
@@ -1774,7 +1774,7 @@
         {
           "i": 176,
           "question": "ai đã phát hành cuốn sách này",
-          "prediction": "macmillan, steve taylor-knowles",
+          "prediction": "macmillan, steve haynes",
           "references": [
             "nhà xuất bản hồng đức"
           ],
@@ -1814,7 +1814,7 @@
         {
           "i": 180,
           "question": "tên chính thức của cuốn sách là gì",
-          "prediction": "yoshiki nakamura, yoichi",
+          "prediction": "yoshiki nakamura, này xuất bán tre",
           "references": [
             "skip beat tập 44"
           ],
@@ -1834,7 +1834,7 @@
         {
           "i": 182,
           "question": "ai là người dịch cuốn sách này sang một ngôn ngữ khác để đọc",
-          "prediction": "yoshiki, nakamura",
+          "prediction": "yoshiki nakamura",
           "references": [
             "quý chi"
           ],
@@ -1894,7 +1894,7 @@
         {
           "i": 188,
           "question": "ai đã phát triển ý tưởng cho cuốn sách này",
-          "prediction": "science encyclopedia , biểu khoa thư của thể",
+          "prediction": "science encyclopedia - biểu khoa thư của thể",
           "references": [
             "nhiều tác giả"
           ],
@@ -1914,7 +1914,7 @@
         {
           "i": 190,
           "question": "nhà xuất bản nào đã đưa cuốn sách này vào phân phối",
-          "prediction": "bach khoa hc",
+          "prediction": "bộ tích khoa hc",
           "references": [
             "nhà xuất bản thanh niên"
           ],
@@ -1924,7 +1924,7 @@
         {
           "i": 191,
           "question": "ai là người thực hiện công việc dịch cuốn sách này sang một ngôn ngữ khác",
-          "prediction": "science encyclopedia - biểu khoa thư của thiêu và khoa hcó",
+          "prediction": "science encyclopedia - biểu khoa thư của thể loại và khoa hcó",
           "references": [
             "thùy dương"
           ],
@@ -1964,7 +1964,7 @@
         {
           "i": 195,
           "question": "nhà xuất bản nào đã cung cấp cuốn sách này",
-          "prediction": "nguyễn tác, muy�u kaneshiro, yuda của",
+          "prediction": "nguyễn tác, muy�u kaneshiro yúsaka nomura",
           "references": [
             "nhà xuất bản kim đồng"
           ],
@@ -2016,14 +2016,14 @@
     "openvivqa_dev": {
       "metrics": {
         "exact_match": 0.0,
-        "token_f1": 3.1694953687523353,
+        "token_f1": 4.22511372521035,
         "n": 200
       },
       "samples": [
         {
           "i": 0,
           "question": "người dân không được tụ tập quá bao nhiêu người ?",
-          "prediction": "12/05/20021",
+          "prediction": "12/05/200211",
           "references": [
             "10 người"
           ],
@@ -2043,7 +2043,7 @@
         {
           "i": 2,
           "question": "đây đang ở chợ gì ?",
-          "prediction": "Ấn bóng phát nhau",
+          "prediction": "Ấn không của có những là .",
           "references": [
             "chợ nhân chính"
           ],
@@ -2063,7 +2063,7 @@
         {
           "i": 4,
           "question": "tổng đại lý-bác sĩ đỗ thúy lan chuyên làm về cái gì ?",
-          "prediction": "tông dai ly - các sá xuất",
+          "prediction": "tông dai ly - bác sthug ján",
           "references": [
             "diệp lục collagen-diệp lục lysine"
           ],
@@ -2073,7 +2073,7 @@
         {
           "i": 5,
           "question": "tổng đại lý-bác sĩ có tên là gì ?",
-          "prediction": "tông dai ly - bác sthug ján",
+          "prediction": "tong dai ly - bac sthug ján",
           "references": [
             "tên là đỗ thúy lan"
           ],
@@ -2103,7 +2103,7 @@
         {
           "i": 8,
           "question": "tiêu lệnh 3 là gì ?",
-          "prediction": "tiêu nhất chảy cha này",
+          "prediction": "tiêu liên chảy cha này",
           "references": [
             "dùng bình chữa cháy cát và nước để dập tắt"
           ],
@@ -2123,7 +2123,7 @@
         {
           "i": 10,
           "question": "tiêu lệnh 4 là gì ?",
-          "prediction": "tiêu nhất chảy cha này",
+          "prediction": "tiêu liên chảy cha y xuất bản",
           "references": [
             "điện thoại số 114 đội chữa cháy chuyên nghiệp"
           ],
@@ -2133,7 +2133,7 @@
         {
           "i": 11,
           "question": "tiêu lệnh 2 là gì ?",
-          "prediction": "tiêu nhân và chảy của cho này",
+          "prediction": "tiêu liên chảy cha này",
           "references": [
             "cúp cầu dao điện nơi xảy ra cháy"
           ],
@@ -2143,7 +2143,7 @@
         {
           "i": 12,
           "question": "tiêu lệnh 1 là gì ?",
-          "prediction": "tiêu nhân bóng chảy",
+          "prediction": "tiêu nhất chảy cha này",
           "references": [
             "khi xảy ra cháy báo động gấp"
           ],
@@ -2153,7 +2153,7 @@
         {
           "i": 13,
           "question": "đây là biển hiệu của ai ?",
-          "prediction": "nhà xuất bản này đang có thể không",
+          "prediction": "nhà xuất bản này đang có ảnh .",
           "references": [
             "đây là biển hiệu của cửa hàng tân"
           ],
@@ -2173,7 +2173,7 @@
         {
           "i": 15,
           "question": "cửa hàng ở đâu ?",
-          "prediction": "nhà xuất bản này đang là .",
+          "prediction": "nhà xuất bản của đang là .",
           "references": [
             "rẻ phải vào 30 m"
           ],
@@ -2183,7 +2183,7 @@
         {
           "i": 16,
           "question": "điện thoại cửa tân là gì ?",
-          "prediction": "nhà xuất bản này đang của cuốn sách .",
+          "prediction": "nhà xuất bản này đang giễn của chính thức",
           "references": [
             "là 0939427870 hoặc 01676313352"
           ],
@@ -2193,7 +2193,7 @@
         {
           "i": 17,
           "question": "cửa hàng tân chuyên làm gì ?",
-          "prediction": "nhà xuất bản của chính thức",
+          "prediction": "nhà xuất bản của được không",
           "references": [
             "chuyên làm nhà tiền chế và lắp đặt điện nước"
           ],
@@ -2203,7 +2203,7 @@
         {
           "i": 18,
           "question": "số đăng kí kinh doanh của đại lý internet trung nguyên là gì ?",
-          "prediction": "sống 3/13 pham thiếu bóng, pho trong 4.",
+          "prediction": "số đang kính donhà 33/13ạp phí trong 4,5.",
           "references": [
             "54a801353"
           ],
@@ -2233,7 +2233,7 @@
         {
           "i": 21,
           "question": "đại lý internet có tên là gì ?",
-          "prediction": "internet cần sách bóng của vài những",
+          "prediction": "internet cần sách bóng và những trên của đã",
           "references": [
             "tên là trung nguyên"
           ],
@@ -2243,7 +2243,7 @@
         {
           "i": 22,
           "question": "chữ trung nguyên có màu gì ?",
-          "prediction": "từ bằng internet",
+          "prediction": "từ hình long",
           "references": [
             "màu đỏ"
           ],
@@ -2283,7 +2283,7 @@
         {
           "i": 26,
           "question": "trường đại học kinh tế thuộc đại học nào ?",
-          "prediction": "1983-66",
+          "prediction": "19836169",
           "references": [
             "thuộc đại học đà nẵng"
           ],
@@ -2323,7 +2323,7 @@
         {
           "i": 30,
           "question": "cửa hàng này tên gì ?",
-          "prediction": "sách là một 901-2000",
+          "prediction": "sách là một bóng",
           "references": [
             "cửa hàng này tên đào tiên"
           ],
@@ -2363,12 +2363,12 @@
         {
           "i": 34,
           "question": "phải thực hiện điều gì ở cơ quan ?",
-          "prediction": "có quy chủ",
+          "prediction": "nhà xuất bản của quy chủ",
           "references": [
             "phải thực hiện dân chủ ở cơ quan"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.18181818181818182
+          "token_f1": 0.14285714285714288
         },
         {
           "i": 35,
@@ -2383,7 +2383,7 @@
         {
           "i": 36,
           "question": "con lân bên phải đang truyền thông điệp gì ?",
-          "prediction": "nhà xuất bản xút thị tácán",
+          "prediction": "nhà xuất bản xút thụcán dùc",
           "references": [
             "con lân bên phải đang truyền thông điệp phát lộc phát tài"
           ],
@@ -2423,7 +2423,7 @@
         {
           "i": 40,
           "question": "chữ pắc bó có màu gì ?",
-          "prediction": "1000 km/h",
+          "prediction": "của bóng",
           "references": [
             "có màu trắng"
           ],
@@ -2463,7 +2463,7 @@
         {
           "i": 44,
           "question": "hướng nào đi pác bó ?",
-          "prediction": "nhà xuất bản có",
+          "prediction": "nhà xuất bản",
           "references": [
             "hướng đi thẳng"
           ],
@@ -2473,7 +2473,7 @@
         {
           "i": 45,
           "question": "người ở đây yêu cầu gì ?",
-          "prediction": "nhà xuất bản của cuốn sách này",
+          "prediction": "nhà xuất bản và không viên trong 80",
           "references": [
             "người ở đây yêu cầu mang ổ quá về"
           ],
@@ -2513,7 +2513,7 @@
         {
           "i": 49,
           "question": "người ở đây kêu mang gì về ?",
-          "prediction": "người ớng mang ô không và",
+          "prediction": "người ớng Mang vào khoa vé",
           "references": [
             "mang ổ khóa về"
           ],
@@ -2523,7 +2523,7 @@
         {
           "i": 50,
           "question": "trường nghề này dạy về nghềg gì ?",
-          "prediction": "trong 2014",
+          "prediction": "trong day , thànhau an, chung trinh .",
           "references": [
             "ẩm thực"
           ],
@@ -2533,7 +2533,7 @@
         {
           "i": 51,
           "question": "trường dạy nghề đang chiêu sinh cho những nội dung dạy học nào ?",
-          "prediction": "trong này là gì .",
+          "prediction": "trong day ngữ là gì .",
           "references": [
             "dạy nghề nấu năm nhà hàng - quán ăn , nấu ăn cho gia đình và quản lý nhà hàng"
           ],
@@ -2583,12 +2583,12 @@
         {
           "i": 56,
           "question": "quán này nằm ở số nhà nào ?",
-          "prediction": "có của 195",
+          "prediction": "có không caphe 195",
           "references": [
             "quán này nằm ở số nhà 195"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.2
+          "token_f1": 0.18181818181818182
         },
         {
           "i": 57,
@@ -2623,7 +2623,7 @@
         {
           "i": 60,
           "question": "tiệm cắt tóc này tên gì ?",
-          "prediction": "tiệm cách nghĩa là .",
+          "prediction": "tiệm của nhà là .",
           "references": [
             "tiệm cắt tóc khánh linh"
           ],
@@ -2633,7 +2633,7 @@
         {
           "i": 61,
           "question": "cửa tiệm khánh linh chuyên kinh doanh dịch vụ gì ?",
-          "prediction": "các được đặt nhà là .",
+          "prediction": "các 347 và biên hình tự, p.244, qbt, timp . học",
           "references": [
             "cửa tiệm khánh linh chuyên cung cấp dịch vụ tạo mẫu tóc"
           ],
@@ -2643,12 +2643,12 @@
         {
           "i": 62,
           "question": "tiệm cắt tóc khánh linh nằm ở số nhà nào ?",
-          "prediction": "tiệm cách của khánh lính",
+          "prediction": "tiệm cách có 347",
           "references": [
             "số 347"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.3333333333333333
         },
         {
           "i": 63,
@@ -2703,7 +2703,7 @@
         {
           "i": 68,
           "question": "đây là của hàng gì ?",
-          "prediction": "đang không - ngoi dep",
+          "prediction": "Ấn không - ngoi dep",
           "references": [
             "đây là một nhà hàng"
           ],
@@ -2713,37 +2713,37 @@
         {
           "i": 69,
           "question": "nhà hàng có tên gì ?",
-          "prediction": "nhà xuất bản an giong - ngôi dip",
+          "prediction": "nhà này là 259",
           "references": [
             "nhà hàng có tên góc hà nội"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.14285714285714285
+          "token_f1": 0.18181818181818182
         },
         {
           "i": 70,
           "question": "nhà hàng góc hà nội nằm ở đâu ?",
-          "prediction": "nhà này là gì",
+          "prediction": "nhàng có 259",
           "references": [
             "nằm ở 259 tô hiệu"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.25
         },
         {
           "i": 71,
           "question": "màu sắc chủ yếu của những ngôi nhà trong ảnh được sơn màu gì ?",
-          "prediction": "có bóng của đang này",
+          "prediction": "có bóng sách này",
           "references": [
             "hầu hết những ngôi nhà đều có màu vàng"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.14285714285714285
+          "token_f1": 0.15384615384615383
         },
         {
           "i": 72,
           "question": "cô đang đạp xe chở hàng mang áo màu gì ?",
-          "prediction": "cóang đãa�p e của trong .",
+          "prediction": "cóang đãa�p e của trong chính .",
           "references": [
             "cô đạp xe đẩy hàng mang áo màu tím"
           ],
@@ -2763,7 +2763,7 @@
         {
           "i": 74,
           "question": "đi đường nào có thể tìm thấy quán lẩu bò hai tín ?",
-          "prediction": "nhà xuất bản",
+          "prediction": "nhà xuất bản , 2, tphc",
           "references": [
             "đi trên đường trần não là tìm thấy quán lẩu bò hai tín"
           ],
@@ -2783,7 +2783,7 @@
         {
           "i": 76,
           "question": "nguyên liệu chính của các món ăn tại quán hai tín là gì ?",
-          "prediction": "nhà xuất bản đang biết tên 2, tập hcm",
+          "prediction": "nhà xuất bản giới",
           "references": [
             "nguyên liệu chính của các món ăn tại quán hai tín là thịt bò"
           ],
@@ -2793,7 +2793,7 @@
         {
           "i": 77,
           "question": "dòng chữ \" kết nối nguồn lực , hiện thực ước mơ . \" có màu gì ?",
-          "prediction": "là gì \" ktên ngườingợc, hiệu thú các mô.",
+          "prediction": "là gì, của ở trên tên",
           "references": [
             "dòng chữ \" kết nối nguồn lực , hiện thực ước mơ . \" có màu xanh dương"
           ],
@@ -2803,7 +2803,7 @@
         {
           "i": 78,
           "question": "màu nền phía ngoài dòng chữ \" kết nối nguồn lực , hiện thực ước mơ . \" là màu gì ?",
-          "prediction": "của đã này và được ở có thể nào ?",
+          "prediction": "của đã này và được ở có một không",
           "references": [
             "màu nền phía ngoài dòng chữ \" kết nối nguồn lực , hiện thực ước mơ . \" là màu trắng"
           ],
@@ -2823,7 +2823,7 @@
         {
           "i": 80,
           "question": "người phụ nữ trong bức ảnh mặc áo màu gì ?",
-          "prediction": "nhà xuất bản của cuốn sách này",
+          "prediction": "nhà xuất bản của cho không",
           "references": [
             "người phụ nữ trong bức ảnh mặc áo màu trắng"
           ],
@@ -2833,12 +2833,12 @@
         {
           "i": 81,
           "question": "người phụ nữ trong bức ảnh đang làm gì ?",
-          "prediction": "có nhà xuất bản của khi tên là 2015",
+          "prediction": "có nhà xuất bản của khi tên người không lực là 2015.",
           "references": [
             "người phụ nữ trong bức ảnh đang tạo dáng để chụp ảnh"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.08333333333333333
         },
         {
           "i": 82,
@@ -2883,12 +2883,12 @@
         {
           "i": 86,
           "question": "địa chỉ phỏng quản lý là gì ?",
-          "prediction": "của những hàng và xuất bản canh",
+          "prediction": "cóng an nính hàng giang phông quán ly xuất năm các phân can hình immigration office",
           "references": [
             "địa chỉ phòng quản lý là số 415a , đường trần phú , phường trần phú , thành phố hà giang , tỉnh hà giang"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.05405405405405405
         },
         {
           "i": 87,
@@ -2903,7 +2903,7 @@
         {
           "i": 88,
           "question": "liên hệ phòng quản lý qua số fax nào ?",
-          "prediction": "là gì .",
+          "prediction": "là gì , có những phát hành .",
           "references": [
             "qua số 02193875210"
           ],
@@ -2913,12 +2913,12 @@
         {
           "i": 89,
           "question": "đây là ở đâu ?",
-          "prediction": "đã là có nhà xuất bản của điều kiện .",
+          "prediction": "của nhà xuất bản không viên",
           "references": [
             "đây là phòng quản lý xuất nhập cảnh"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.23529411764705882
+          "token_f1": 0.14285714285714288
         },
         {
           "i": 90,
@@ -2943,12 +2943,12 @@
         {
           "i": 92,
           "question": "địa chỉ của cửa hàng là bao nhiêu ?",
-          "prediction": "đã này có 29k",
+          "prediction": "đã này 275 học một một",
           "references": [
             "275 hồ tùng mậu"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.2
         },
         {
           "i": 93,
@@ -2973,12 +2973,12 @@
         {
           "i": 95,
           "question": "quán này mang thương hiệu gì ?",
-          "prediction": "quany nghĩa trong trên gúyên , có tên .",
+          "prediction": "quany mang người là trong nguyen .",
           "references": [
             "quán này mang thương hiệu trung nguyên"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.15384615384615383
         },
         {
           "i": 96,
@@ -3053,7 +3053,7 @@
         {
           "i": 103,
           "question": "điện thoại của phòng giao dịch là gì ?",
-          "prediction": "nhà xuất bản viên",
+          "prediction": "nhà xuất bản viết này bao hóm",
           "references": [
             "là 0703838697"
           ],
@@ -3063,7 +3063,7 @@
         {
           "i": 104,
           "question": "địa chỉ phòng giao dịch ở đâu ?",
-          "prediction": "có nhà xuất bản viết .",
+          "prediction": "có viết nam",
           "references": [
             "ở số 51 trần đại nghĩa , phường 4 , thành phố vĩnh long"
           ],
@@ -3083,7 +3083,7 @@
         {
           "i": 106,
           "question": "số điện thoại của tiệm win - won là gì ?",
-          "prediction": "sống 12.4/mách",
+          "prediction": "sống .",
           "references": [
             "số điện thoại của tiệm win - won là 0946 121 412"
           ],
@@ -3093,22 +3093,22 @@
         {
           "i": 107,
           "question": "ai quản lý tiệm win - won này ?",
-          "prediction": "ai nhàt là cafe .",
+          "prediction": "cafe-sinh to tria sinh .com vàn phễn . com chay 0946.121.4112/ Nguyen Diu Hien add : 2244 thành nghián giao hng tan noi",
           "references": [
             "nguyen dieu hien là người quản lý tiệm win - won"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.14285714285714288
+          "token_f1": 0.12903225806451613
         },
         {
           "i": 108,
           "question": "tiệm win - won phục vụ người dân khu vực nào ?",
-          "prediction": "tiệm win -won",
+          "prediction": "tiệm win -won có nhà xuất bản của cuốn sách .",
           "references": [
             "tiệm win - won phục vụ người dân khu vực phú nhuận và lân cận"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.35294117647058826
+          "token_f1": 0.25
         },
         {
           "i": 109,
@@ -3133,7 +3133,7 @@
         {
           "i": 111,
           "question": "đây là cửa hàng gì ?",
-          "prediction": "có tên 10000000",
+          "prediction": "có nhà xuất bản , và nàyà nào .",
           "references": [
             "đây là cửa hàng pizza"
           ],
@@ -3183,12 +3183,12 @@
         {
           "i": 116,
           "question": "đây là câu lạc bộ cờ tướng phường nào ?",
-          "prediction": "đã này của một người 8",
+          "prediction": "đã này của ở có xuấtng phún 8",
           "references": [
             "đây là câu lạc bộ cờ tướng phường 8"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.13333333333333333
+          "token_f1": 0.11764705882352941
         },
         {
           "i": 117,
@@ -3243,12 +3243,12 @@
         {
           "i": 122,
           "question": "đây là đâu ?",
-          "prediction": "đang này và xuấtải vào do các bóng .",
+          "prediction": "đã là đang của ảnh và trong những một gì .",
           "references": [
             "đây là công ty cổ phần tư vấn xây dựng và đo đạc bản đồ linh sơn"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.07999999999999999
+          "token_f1": 0.14814814814814817
         },
         {
           "i": 123,
@@ -3263,12 +3263,12 @@
         {
           "i": 124,
           "question": "chế độ bảo hành 1 đổi 1 có hiệu lực bao lâu ?",
-          "prediction": "Bạo nhân 1ối 1",
+          "prediction": "Bạo nhân đang 2 năm",
           "references": [
             "trong vòng 2 năm"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.4444444444444445
         },
         {
           "i": 125,
@@ -3283,12 +3283,12 @@
         {
           "i": 126,
           "question": "chế độ bảo hành 1 đổi 1 trong vòng 2 năm được thực hiện theo chính sách nào ?",
-          "prediction": "Bạn có nhà xuất bản là 1 người 1 trên 101.",
+          "prediction": "Bạn có nhà xuất bản 1 người 1, bóng 1ốc 1 của Casaer.",
           "references": [
             "theo chính sách bảo hành hiện hành của casper"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.09090909090909093
         },
         {
           "i": 127,
@@ -3353,7 +3353,7 @@
         {
           "i": 133,
           "question": "số điện thoại liên lạc là gì ?",
-          "prediction": "sống 1000/m³",
+          "prediction": "sau cuốn sách này , có nhà xuất bản 99%",
           "references": [
             "0975991001"
           ],
@@ -3393,7 +3393,7 @@
         {
           "i": 137,
           "question": "muốn dùng dịch vụ của cgv thì cần phải đi đâu ?",
-          "prediction": "mu�ng chính xuất bản",
+          "prediction": "mu�ng dang taíi",
           "references": [
             "muốn dùng dịch vụ của cgv thì cần phải đi lên tầng 5"
           ],
@@ -3433,7 +3433,7 @@
         {
           "i": 141,
           "question": "quầy hàng thanh long sấy được bày bán ở hội chợ nằm ở đâu ?",
-          "prediction": "quyển là gì .",
+          "prediction": "quan hình là gì .",
           "references": [
             "long an"
           ],
@@ -3453,7 +3453,7 @@
         {
           "i": 143,
           "question": "quầy hàng này bán những mặt hàng nào ?",
-          "prediction": "quyển là gì",
+          "prediction": "quan hành là 6000",
           "references": [
             "thanh long sấy"
           ],
@@ -3463,7 +3463,7 @@
         {
           "i": 144,
           "question": "cửa tiệm hớt tóc này tên gì ?",
-          "prediction": "có đang xuất bản",
+          "prediction": "có đang của khuyảm việt và những .",
           "references": [
             "khánh vân"
           ],
@@ -3473,7 +3473,7 @@
         {
           "i": 145,
           "question": "cửa tiệm khánh vân kinh doanh loại hình dịch vụ gì ?",
-          "prediction": "cácát .uối .huôm",
+          "prediction": "cácát .uối .huôm là mong - massage mat trang diem co dùau , uốn lông mi",
           "references": [
             "dịch vụ nhổ tóc bạc"
           ],
@@ -3483,12 +3483,12 @@
         {
           "i": 146,
           "question": "cửa tiệm khánh vân cung cấp dịch vụ gì cho cô dâu ?",
-          "prediction": "cácát .uối .huôm",
+          "prediction": "cácát .uối .huôm là mong - massage mat trang diem co dau , uốn lông mi",
           "references": [
             "cửa tiệm cung cấp dịch vụ trang điểm cô dâu"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.08333333333333333
         },
         {
           "i": 147,
@@ -3513,7 +3513,7 @@
         {
           "i": 149,
           "question": "bệnh trĩ được điều trị bằng thuốc gì ?",
-          "prediction": "bán đã đang biết 26%",
+          "prediction": "bán đã đang biết bóng của ở 26",
           "references": [
             "bằng thuốc nam"
           ],
@@ -3523,7 +3523,7 @@
         {
           "i": 150,
           "question": "tấm biển có chữ màu gì ?",
-          "prediction": "bán đã đang của ảnh bóng được",
+          "prediction": "bán đã đang của ảnh là 26",
           "references": [
             "màu đỏ"
           ],
@@ -3543,7 +3543,7 @@
         {
           "i": 152,
           "question": "thông điệp ở bìa sách của cuốn làm lại từ đầu là gì ?",
-          "prediction": "có nhà xuất bản croissant",
+          "prediction": "có nhà xuất bản croissant, này màu nào .",
           "references": [
             "hãy thêm số 1 vào cuộc đời bạn khi bạn đang bắt đầu từ số 0"
           ],
@@ -3563,7 +3563,7 @@
         {
           "i": 154,
           "question": "cuốn sách làm lại từ đầu của tác giả nào ?",
-          "prediction": "cuối tiếng việt",
+          "prediction": "cuối đang sau, tiếng việt",
           "references": [
             "cuốn sách làm lại từ đầu của tác giả takafumi horie"
           ],
@@ -3573,7 +3573,7 @@
         {
           "i": 155,
           "question": "buổi hội thảo có địa chỉ ở đâu ?",
-          "prediction": "buộc của cuốn sách .",
+          "prediction": "buộc 1",
           "references": [
             "ở hà nội"
           ],
@@ -3583,7 +3583,7 @@
         {
           "i": 156,
           "question": "hội thảo diễn ra vào ngày nào ?",
-          "prediction": "nhà xuất bản của ở cuốn sách .",
+          "prediction": "nhà xuất bản ở của cuốn sách .",
           "references": [
             "18 / 11 / 2021"
           ],
@@ -3603,7 +3603,7 @@
         {
           "i": 158,
           "question": "địa chỉ cửa hàng vinmart là bao nhiêu ?",
-          "prediction": "đã có biết bóng vin mart",
+          "prediction": "đã có biết vin mart",
           "references": [
             "60 pasteur , p . bến nghé , q . 1 , tp . hcm"
           ],
@@ -3623,7 +3623,7 @@
         {
           "i": 160,
           "question": "cửa hàng bên phải tên gì ?",
-          "prediction": "cách nghĩa",
+          "prediction": "60 paseur,pán nghĩa ,1,2,3",
           "references": [
             "cửa hàng familymart"
           ],
@@ -3633,17 +3633,17 @@
         {
           "i": 161,
           "question": "chiếc ô tô này trực thuộc đội an ninh miền nào ?",
-          "prediction": "chiếc Ô tên có .",
+          "prediction": "chiếc Ô tên y của có .",
           "references": [
             "chiếc ô tô này trực thuộc đội an ninh miền bắc"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.26666666666666666
+          "token_f1": 0.23529411764705885
         },
         {
           "i": 162,
           "question": "chiếc ô tô này thuộc sở hữu của ai ?",
-          "prediction": "chiếc Ô trên , nhà xuất bản .",
+          "prediction": "chiếc Ô tên nhất , có biết .",
           "references": [
             "chiếc ô tô này thuộc sở hữu của an ninh miền bắc"
           ],
@@ -3653,7 +3653,7 @@
         {
           "i": 163,
           "question": "đội an ninh miền bắc dùng phương tiện gì để thực hiện nhiệm vụ ?",
-          "prediction": "đang là , có một .",
+          "prediction": "được bản đang là .",
           "references": [
             "đội an ninh miền bắc dùng ô tô để thực hiện nhiệm vụ"
           ],
@@ -3693,7 +3693,7 @@
         {
           "i": 167,
           "question": "số điện thoại của kim khí na giang là gì ?",
-          "prediction": "nhà xuất bản kimki này đang trên tên",
+          "prediction": "nhà xuất bản kimki này đang 255 cuốn sách .",
           "references": [
             "số điện thoại của kim khí na giang là 0437633428"
           ],
@@ -3703,17 +3703,17 @@
         {
           "i": 168,
           "question": "đây là cơ sở thứ mấy của kim khí na giang ?",
-          "prediction": "có sách 255 các dù nội nghiệp",
+          "prediction": "nhà giang",
           "references": [
             "đây là cơ sở 2 của kim khí na giang"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.16666666666666669
         },
         {
           "i": 169,
           "question": "cửa hàng el nino nằm ở đâu ?",
-          "prediction": "có sách 255 của đã trên tên",
+          "prediction": "có sách này giang",
           "references": [
             "cửa hàng el nino nằm ở 257 hồ tùng mậu"
           ],
@@ -3733,17 +3733,17 @@
         {
           "i": 171,
           "question": "na giang kinh doanh gì ?",
-          "prediction": "nà giang kinhdoánh là 255 cuốn đang",
+          "prediction": "nà giang kinhdoánh là nào ?",
           "references": [
             "na giang kinh doanh kim khí"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.15384615384615383
+          "token_f1": 0.1818181818181818
         },
         {
           "i": 172,
           "question": "câu châm ngôn của cửa hàng này là gì ?",
-          "prediction": "các nhà xuất bản nào 1",
+          "prediction": "có những nào 1",
           "references": [
             "ăn no không lo về giá"
           ],
@@ -3753,7 +3753,7 @@
         {
           "i": 173,
           "question": "đây là áp phích của cửa hàng nào ?",
-          "prediction": "đang này và nhà xuất bản",
+          "prediction": "đang khoa những 1",
           "references": [
             "cửa hàng phố cổ hà nội"
           ],
@@ -3813,7 +3813,7 @@
         {
           "i": 179,
           "question": "tên viết tắt của ngân hàng tmcp đầu tư và phát triển việt nam là gì ?",
-          "prediction": "nhà xuất bản 04/5/20013",
+          "prediction": "nghiệp có không thành thiếu 13/20133",
           "references": [
             "tên viết tắt của ngân hàng tmcp đầu tư và phát triển việt nam là bidv"
           ],
@@ -3843,17 +3843,17 @@
         {
           "i": 182,
           "question": "từ ngày mấy quán kỳ đồng bắt đầu tạm nghỉ vì sức khỏe cộng đồng ?",
-          "prediction": "từ này , xuất bản .",
+          "prediction": "từ này�y .",
           "references": [
             "từ ngày 22 tháng 5 quán kỳ đồng bắt đầu tạm nghỉ vì sức khỏe cộng đồng"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.09523809523809523
+          "token_f1": 0.10526315789473684
         },
         {
           "i": 183,
           "question": "thời gian đóng cửa tạm thời của quán kỳ đồng là ngày nào ?",
-          "prediction": "có những 20/5",
+          "prediction": "có những 29/05",
           "references": [
             "quán đóng cửa tạm thời từ 22 / 5 đến 29 / 5"
           ],
@@ -3863,7 +3863,7 @@
         {
           "i": 184,
           "question": "thời gian quán kỳ đồng mở bán lại là sau ngày mấy ?",
-          "prediction": "nhiều 205/mạt .",
+          "prediction": "có nghiều 20/5",
           "references": [
             "quán mở bán lại sau ngày 29 / 5"
           ],
@@ -3883,7 +3883,7 @@
         {
           "i": 186,
           "question": "đây là đâu ?",
-          "prediction": "đang phát hành cuốn sách này",
+          "prediction": "đã này ảnh có nhà xuất bản cuốn sách .",
           "references": [
             "đây là một chốt kiểm soát dịch covid-19"
           ],
@@ -3893,7 +3893,7 @@
         {
           "i": 187,
           "question": "người đàn ông ngồi trên xe máy đang làm gì ?",
-          "prediction": "nhà xuất bản của ở cuốn .",
+          "prediction": "nhà xuất bản phân không",
           "references": [
             "đang được đo thân nhiệt"
           ],
@@ -3923,7 +3923,7 @@
         {
           "i": 190,
           "question": "nhà cổ phùng hưng nằm ở số nhà bao nhiêu ?",
-          "prediction": "nguyễn thi minh khai, phung Minh An, hói an.",
+          "prediction": "nguyễn thi Minh Khai, phuững minh an, hói an.",
           "references": [
             "4"
           ],
@@ -3973,17 +3973,17 @@
         {
           "i": 195,
           "question": "nội dung được ghi trên tấm bảng phía trên bức tượng là gì ?",
-          "prediction": "người nhất thián chính",
+          "prediction": "người nhất bản thiên cho trong .",
           "references": [
             "vinh danh thiên chúa trên trời"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.16666666666666666
         },
         {
           "i": 196,
           "question": "khung cảnh trong bức ảnh là ở đâu ?",
-          "prediction": "bóng của bán sách",
+          "prediction": "bóng của bán sách , ấn có .",
           "references": [
             "bức ảnh được chụp ở quán rượu"
           ],
@@ -3993,22 +3993,22 @@
         {
           "i": 197,
           "question": "người đàn ông đang đứng cầm điện thoại mang áo màu gì ?",
-          "prediction": "Âng đã̀n có bóng .",
+          "prediction": "Mang đã áo người có bóng .",
           "references": [
             "người đàn ông đang đứng cầm điện thoại mặc áo màu đen"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.0
+          "token_f1": 0.2222222222222222
         },
         {
           "i": 198,
           "question": "màu chủ đạo của trang phục người phụ nữ ngồi cạnh cửa ra vào là màu gì ?",
-          "prediction": "có của quốc trong quan được .",
+          "prediction": "có của trong .",
           "references": [
             "người phụ nữ ngồi cạnh cửa ra vào có trang phục màu đỏ"
           ],
           "exact_match": 0.0,
-          "token_f1": 0.10526315789473684
+          "token_f1": 0.125
         },
         {
           "i": 199,
@@ -4024,8 +4024,8 @@
     },
     "uitviic_valid": {
       "metrics": {
-        "bleu": 0.31525202347496317,
-        "rougeL": 26.830441688597194,
+        "bleu": 0.30785128050809873,
+        "rougeL": 26.28327910926316,
         "n": 200
       },
       "samples": [
@@ -4080,7 +4080,7 @@
         {
           "i": 4,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "trong những tennis .",
           "references": [
             "Những đứa trẻ đang tập đánh tennis.",
             "Hai đứa trẻ đang trong lớp học tennis.",
@@ -4092,7 +4092,7 @@
         {
           "i": 5,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là 20 .",
+          "prediction": "Mộtu của những .",
           "references": [
             "Một nhóm người đang luyện tập ném dĩa trên sân bóng rổ.",
             "Một nhóm người đang chơi ném dĩa trong phòng thi đấu.",
@@ -4128,7 +4128,7 @@
         {
           "i": 8,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "tên của có biết bóng .",
+          "prediction": "tên của có những .",
           "references": [
             "Một nhóm người đang xem tennis trên tivi.",
             "Mốt số người chơi tennis điện tử.",
@@ -4164,7 +4164,7 @@
         {
           "i": 11,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong quốc cho của đang .",
+          "prediction": "trong quyển .",
           "references": [
             "Hình ảnh một bé gái đang chơi bóng dưới quảng trường.",
             "Một bé gái đang chơi bóng đá ngoài đường hố trước nhiều người quan sát.",
@@ -4176,7 +4176,7 @@
         {
           "i": 12,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu của những rugby .",
+          "prediction": "Mộtu đang những .",
           "references": [
             "Một số người đàn ông đang chơi bóng bầu dục trên sân cỏ.",
             "Những người đàn ông đang tranh giành quả bóng bầu dục trên mặt đất.",
@@ -4188,7 +4188,7 @@
         {
           "i": 13,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu màu đang là 2013 .",
+          "prediction": "Mộtu của những .",
           "references": [
             "Hình ảnh hai người phụ nữ đang đá bóng trên sân cỏ.",
             "Người phụ nữ áo trắng đang đá bóng trên sân.",
@@ -4224,7 +4224,7 @@
         {
           "i": 16,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Mộtu đang có những biết bóng .",
           "references": [
             "Trận bóng chày đang diễn ra với một cầu thủ đang vung gậy đánh bóng.",
             "Cầu thủ bóng chày vừa vung gậy đỡ bóng trượt.",
@@ -4236,7 +4236,7 @@
         {
           "i": 17,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "có những .",
           "references": [
             "Một cậu bé đang chơi bóng chày ngoài sân.",
             "Cầu thủ bóng chày trẻ đang chuẩn bị ném bóng.",
@@ -4272,7 +4272,7 @@
         {
           "i": 20,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "bóng bé",
+          "prediction": "bóng không .",
           "references": [
             "Những đứa trẻ đang cùng nhau chơi bóng chày ngoài sân cỏ.",
             "Những đứa trẻ đang chơi bóng chày ngoài sân.",
@@ -4308,7 +4308,7 @@
         {
           "i": 23,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là nhà xuất bản baseball .",
+          "prediction": "có biết baseball, bóng đang của công viên .",
           "references": [
             "Các cầu thủ bóng chày đang luyện tập ở trên sân .",
             "Các cậu bé đang theo dõi một buổi luyện tập bóng chày .",
@@ -4332,7 +4332,7 @@
         {
           "i": 25,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là .",
+          "prediction": "trong quy�u nhà, có biết bóng .",
           "references": [
             "Cầu thủ bóng đá trẻ đang tăng bóng trên sân cỏ .",
             "Đứa bé gái đang đá bóng trên sân cỏ .",
@@ -4344,7 +4344,7 @@
         {
           "i": 26,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn rugby .",
+          "prediction": "Mộtu là nhà xuất bản rugby .",
           "references": [
             "Các cầu thủ bóng bầu dục nam đang tranh giành quả bóng .",
             "Các cầu thủ áo xanh vàng đang cản cầu thủ của đội đối thủ .",
@@ -4368,7 +4368,7 @@
         {
           "i": 28,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn đang đơn ra .",
           "references": [
             "Các cầu thủ bóng chày đang thi đấu ở trên sân .",
             "Cầu thủ đánh bóng đang giơ gậy lên cao để chuẩn bị đánh bóng .",
@@ -4440,7 +4440,7 @@
         {
           "i": 34,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong trên",
+          "prediction": "trong có nghiệp tennis, tên âm tennis .",
           "references": [
             "Những cậu bé đang luyện tập tennis ở trên sân .",
             "Một cậu bé áo cam đang quan sát động tác của cậu bé áo đỏ .",
@@ -4464,7 +4464,7 @@
         {
           "i": 36,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "bóng đang không .",
           "references": [
             "Một cầu thủ bóng chày đang vung gậy đánh trả bóng .",
             "Người đàn ông đang vung gậy bóng chày đỡ bóng .",
@@ -4488,7 +4488,7 @@
         {
           "i": 38,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Một cuốn và chính của nhà .",
           "references": [
             "Nữ cầu thủ áo trắng đang đẩy người của nữ cầu thủ áo đỏ để tranh bóng .",
             "Hai cô gái đang tranh chấp bóng ở trên sân .",
@@ -4608,7 +4608,7 @@
         {
           "i": 48,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn baseball .",
           "references": [
             "Cầu thủ ném bóng đang chuẩn bị phát bóng về phía sân nhà .",
             "Trận đấu bóng chày đang diễn ra với một cầu thủ chuẩn bị ném bóng .",
@@ -4620,7 +4620,7 @@
         {
           "i": 49,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "bóng đang có biết .",
+          "prediction": "tên của baseball .",
           "references": [
             "Cầu thủ bóng chày đang cầm gậy thi đấu trên sân .",
             "Cầu thủ bóng chày đang cầm gậy bước tới đánh bóng .",
@@ -4632,7 +4632,7 @@
         {
           "i": 50,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đang nhất tennis .",
+          "prediction": "tên của tennis đang .",
           "references": [
             "Hai người phụ nữ đang thi đấu tennis với nhau .",
             "Người phụ nữ đang cầm vợt tennis chuẩn bị đánh bóng .",
@@ -4716,7 +4716,7 @@
         {
           "i": 57,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết bóng .",
+          "prediction": "Mộtu đang của những .",
           "references": [
             "Một cậu bé đang vung gậy để đánh quả bóng chày .",
             "Một cậu bé đang chuẩn bị đánh quả bóng chày .",
@@ -4728,7 +4728,7 @@
         {
           "i": 58,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng đang có những .",
+          "prediction": "có những bóng .",
           "references": [
             "Một cậu bé đang cầm găng tay bóng chày và đứng ở trên sân .",
             "Một cầu thủ ném bóng đang đứng ở trên sân .",
@@ -4740,7 +4740,7 @@
         {
           "i": 59,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng đang có biết .",
+          "prediction": "Một cuốn có biết .",
           "references": [
             "Đứa trẻ đang đứng khum người cạnh quả bóng đá .",
             "Đứa trẻ đang đá bóng ngoài sân cỏ .",
@@ -4752,7 +4752,7 @@
         {
           "i": 60,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis đang 2016 .",
+          "prediction": "Một cuốn tennis đang 2015 .",
           "references": [
             "Vận động viên váy trắng đang vung vợt tennis .",
             "Ở trên là những người khán giả đang quan sát trận đấu .",
@@ -4788,7 +4788,7 @@
         {
           "i": 63,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "tên của tennis .",
+          "prediction": "tên của tennis, nhà xuất bản .",
           "references": [
             "Vận động viên tennis đang cầm vợt thi đấu trên sân .",
             "Người đàn ông áo đen đang chơi tennis trên sân .",
@@ -4800,7 +4800,7 @@
         {
           "i": 64,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết bóng .",
+          "prediction": "Mộtu đang của có biết bóng .",
           "references": [
             "Một cậu bé đang chơi bóng chày ở cạnh con thuyền .",
             "Một cậu bé đang dùng gậy để đánh quả bóng chày ở trên sân cỏ .",
@@ -4836,7 +4836,7 @@
         {
           "i": 67,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "tên có nhà .",
+          "prediction": "tên có những tennis .",
           "references": [
             "Khán giả đang theo dõi cú đánh bóng của nam vận động viên tennis .",
             "Một nam vận động viên tennis đang chuẩn bị phát bóng .",
@@ -4884,7 +4884,7 @@
         {
           "i": 71,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu của những .",
           "references": [
             "Cầu thủ áo trắng đang hãm bóng bằng chân phải .",
             "Hai cầu thủ đang tranh chấp bóng ở trên sân .",
@@ -4896,7 +4896,7 @@
         {
           "i": 72,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết có những .",
+          "prediction": "Một cuốn đang là gì .",
           "references": [
             "Người phụ nữ đang đẩy quả bóng lên trời bằng máy xấy .",
             "Người phụ nữ đang cầm máy sấy hướng vào quả bóng làm bóng bay .",
@@ -4908,7 +4908,7 @@
         {
           "i": 73,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn đang đã biết những baseball .",
           "references": [
             "Cầu thủ bắt bóng và trọng tài đang theo dõi cú đánh bóng của cầu thủ đánh bóng .",
             "Cầu thủ đánh bóng đang vung gậy để đánh bóng .",
@@ -5016,7 +5016,7 @@
         {
           "i": 82,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "trong của nhà xuất bản, tên thể có biết .",
           "references": [
             "Một nam vận động viên tennis đang vung vợt để đánh bóng .",
             "Một người đàn ông đang đánh quả bóng tennis .",
@@ -5028,7 +5028,7 @@
         {
           "i": 83,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn baseball .",
           "references": [
             "Cầu thủ đánh bóng đang đưa vợt lên cao để chuẩn bị đánh bóng .",
             "Cầu thủ đánh bóng đang chuẩn bị đánh bóng .",
@@ -5100,7 +5100,7 @@
         {
           "i": 89,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là .",
+          "prediction": "ởi đã là gì .",
           "references": [
             "Người đàn ông đang kiểm soát bóng trên sân .",
             "Cầu thủ bóng đá đang dẫn bóng trên sân cỏ .",
@@ -5124,7 +5124,7 @@
         {
           "i": 91,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là .",
+          "prediction": "Một cuốn đang là gì .",
           "references": [
             "Một cậu bé sắp đánh một quả bóng tennis.",
             "Một đứa trẻ gầy gò với khuôn mặt kỳ lạ đang ở trên bãi biển.",
@@ -5136,7 +5136,7 @@
         {
           "i": 92,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn đang biết tennis .",
           "references": [
             "Một cầu thủ đánh bóng đang vung gậy để đánh bóng .",
             "Một người đàn ông đang chuẩn bị đánh quả bóng chày .",
@@ -5148,7 +5148,7 @@
         {
           "i": 93,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "C . wozniak i , 30,61",
+          "prediction": "C . wozniak i , v . azarenka",
           "references": [
             "Vận động viên tennis nữ đang cầm vợt tennis thi đấu trên sân .",
             "Vận động viên tennis đang cầm vợt chạy tới đỡ bóng thấp .",
@@ -5160,7 +5160,7 @@
         {
           "i": 94,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "tên của baseball team .",
           "references": [
             "Cầu thủ ném bóng đang xoay người để ném bóng .",
             "Cầu thủ đánh bóng đang giơ gậy lên để chuẩn bị đánh bóng .",
@@ -5172,7 +5172,7 @@
         {
           "i": 95,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Một cuốn tennis, tên của nhà .",
           "references": [
             "Một người phụ nữ đang nhìn quả bóng tennis ở trên cao để phát bóng .",
             "Một người phụ nữ đang tung quả bóng tennis lên cao để phát bóng .",
@@ -5184,7 +5184,7 @@
         {
           "i": 96,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Daniele Azzarelli",
+          "prediction": "Daniele Azzarelli, 20 .",
           "references": [
             "Người đàn ông áo đỏ đang chơi bóng đá trên sân .",
             "Cầu thủ bóng đá nam đang đá bóng trên sân cỏ .",
@@ -5208,7 +5208,7 @@
         {
           "i": 98,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu cuốn đang là nhà xuất bản tennis .",
           "references": [
             "Hai người phụ nữ đang cùng nhau chơi tennis . ,",
             "Hai người phụ nữ đang cầm vợt tennis thi đấu tennis chung đội .",
@@ -5220,7 +5220,7 @@
         {
           "i": 99,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đang của soccer .",
+          "prediction": "Mộtu đã ông đang những .",
           "references": [
             "Những cậu bé đang tranh chấp bóng ở trên sân .",
             "Các cầu thủ bóng đá nhí đang di chuyển ở trên sân .",
@@ -5244,7 +5244,7 @@
         {
           "i": 101,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đã cho nhà xuất bản soccer .",
+          "prediction": "Mộtu đã cho những .",
           "references": [
             "Các cầu thủ bóng đá trẻ đang thi đấu trên sân cỏ dưới trời mứa .",
             "Những đứa trẻ đang cùng nhau đá bóng trên sân dưới trời mưa .",
@@ -5280,7 +5280,7 @@
         {
           "i": 104,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết soccer .",
+          "prediction": "Một cuốn đang là 3 .",
           "references": [
             "Cầu thủ bóng đá nữ đang kiểm soát bóng trên không .",
             "Người phụ nữ trong tư thế chuẩn bị sút bóng .",
@@ -5304,7 +5304,7 @@
         {
           "i": 106,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "tên của tennis .",
           "references": [
             "Một người đàn ông đang quan sát đường bay của quả bóng tennis .",
             "Một ông già đang quan sát đường bay của quả bóng tennis .",
@@ -5316,7 +5316,7 @@
         {
           "i": 107,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "bóng đang không .",
+          "prediction": "",
           "references": [
             "Các cầu thủ bóng chày đang thi đấu ở trên sân .",
             "Những người đàn ông đang chơi bóng chày ở trên sân .",
@@ -5340,7 +5340,7 @@
         {
           "i": 109,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết của baseball .",
+          "prediction": "Một cuốn đang biết có những .",
           "references": [
             "Hình ảnh của cầu thủ bóng chày đang cố gắng bắt bóng .",
             "Cầu thủ bóng chày đang nằm xuống bắt bóng .",
@@ -5364,7 +5364,7 @@
         {
           "i": 111,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "có biết baseball, bóng đang .",
           "references": [
             "Cầu thủ bắt bóng và trọng tài đang theo dõi cú đánh bóng của cầu thủ đánh bóng ,",
             "Cầu thủ đánh bóng đang chuẩn bị đánh bóng .",
@@ -5400,7 +5400,7 @@
         {
           "i": 114,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn đang biết baseball, nhà xuất bản .",
           "references": [
             "Cầu thủ đánh bóng đang cầm gậy bước tới đánh trả bóng .",
             "Cầu thủ đánh bóng đang cầm gậy chạy trên sân nhà đỡ bóng .",
@@ -5412,7 +5412,7 @@
         {
           "i": 115,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong 2000m/h",
+          "prediction": "trong 2000m",
           "references": [
             "Một cậu bé đang cầm quả bóng chày và găng tay ở trên sân cỏ .",
             "Một cậu bé đang quỳ ở trên sân cỏ với găng tay và quả bóng chày .",
@@ -5436,7 +5436,7 @@
         {
           "i": 117,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng .",
+          "prediction": "ở bóng của có ít 3,5 cm .",
           "references": [
             "Một đứa trẻ đang nằm trên sàn và đặt tay trái lên quả bóng .",
             "Một đứa trẻ đang chạm tay và nhìn vào quả bóng ở trên sàn .",
@@ -5448,7 +5448,7 @@
         {
           "i": 118,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong 200m",
+          "prediction": "tên của tennis .",
           "references": [
             "Người đàn ông đang cầm vợt tennis đỡ bóng . q",
             "Người đàn ông đang cầm vợt tennis chơi trên sân .",
@@ -5460,7 +5460,7 @@
         {
           "i": 119,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong tennis, tên đang nhất bóng",
+          "prediction": "trong tennis, tên đang nhất tennis .",
           "references": [
             "Người đàn ông đang đưa vợt tennis lên cao đánh bóng .",
             "Người đàn ông mặc áo xám đang chơi tennis trên sân .",
@@ -5484,7 +5484,7 @@
         {
           "i": 121,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết những .",
+          "prediction": "Một cuốn đang là 404 .",
           "references": [
             "Các tư thế khác nhau trong lúc ném bóng của cầu thủ ném bóng .",
             "Cầu thủ ném bóng đang ném quả bóng chày ở trong tay .",
@@ -5520,7 +5520,7 @@
         {
           "i": 124,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "ở bóng của tennis .",
+          "prediction": "giagi fernandez",
           "references": [
             "Hai người đang chơi tennis ở trên sân .",
             "Hai người đang luyện tập tennis ở trên sân .",
@@ -5544,7 +5544,7 @@
         {
           "i": 126,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng .",
+          "prediction": "Một cuốn đang là 12-13 anh .",
           "references": [
             "Một cô bé đang cầm cái gậy và quả bóng chày cạnh trong vườn .",
             "Một cô bé đang cầm cái gậy và quả bóng chày cạnh vườn hoa .",
@@ -5604,7 +5604,7 @@
         {
           "i": 131,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu cuốn đang là .",
           "references": [
             "Vận động viên tennis nam đang cầm vợt với đỡ bóng cao .",
             "Người đàn ông áo trắng đang chơi tennis trên sân .",
@@ -5652,7 +5652,7 @@
         {
           "i": 135,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn rugby .",
+          "prediction": "tên của rugby .",
           "references": [
             "Những người đàn ông đang cùng nhau chơi bóng bầu dục .",
             "Các cầu thủ bóng bầu dục đang cùng nhau chơi ngoài sân cỏ .",
@@ -5700,7 +5700,7 @@
         {
           "i": 139,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "tên của tennis player .",
           "references": [
             "Người đàn ông đang cầm vợt tennis đỡ bóng cao .",
             "Người đàn ông đang chơi tennis ngoài sân .",
@@ -5736,7 +5736,7 @@
         {
           "i": 142,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì nhau .",
+          "prediction": "Một cuốn là nhà xuất bản .",
           "references": [
             "Hai cầu thủ bắt bóng đang chụp ảnh cùng nhau .",
             "Hai cầu thủ ném bóng đang chụp ảnh cùng nhau .",
@@ -5748,7 +5748,7 @@
         {
           "i": 143,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu cuốn sách tennis .",
+          "prediction": "tên của tennis .",
           "references": [
             "Một người đàn ông đang cầm vợt và nghiêng người ở trên sân tennis .",
             "Một người đàn ông đang luyện tập tennis ở trên sân đất nện .",
@@ -5832,7 +5832,7 @@
         {
           "i": 150,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu cuốn đang là nhà xuất bản tennis .",
           "references": [
             "Một nam vận động viên tennis đang cầm vợt và cúi người ở trên sân đất nện .",
             "Một nam vận động viên tennis đang thả quả bóng xuống sân đất nện .",
@@ -5844,7 +5844,7 @@
         {
           "i": 151,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis đang 2015 .",
+          "prediction": "Mộtu màu là gì .",
           "references": [
             "Hai ông già đang đứng cạnh nhau ở trên sân tennis sau khi chơi xong .",
             "Hai ông già đang đứng cạnh nhau ở trên sân tennis trước khi bắt đầu chơi .",
@@ -5856,7 +5856,7 @@
         {
           "i": 152,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Mộtu của baseball player .",
           "references": [
             "Một người đàn ông đang xoay người để ném quả bóng chày .",
             "Một cầu thủ ném bóng đang chuẩn bị ném bóng .",
@@ -5868,7 +5868,7 @@
         {
           "i": 153,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "tên của tennis .",
           "references": [
             "Người đàn ông áo trắng đang chơi tennis trên sân .",
             "Vận động viên tennis nam đang cầm vợt nhảy lên đánh bóng .",
@@ -5904,7 +5904,7 @@
         {
           "i": 156,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "tên được có những .",
           "references": [
             "Hai vận động viên tennis nam đang đấu tennis đôi trước đông đảo khán giả .",
             "Hai vận động viên tennis đang đánh trả bóng bằng vợt tennis .",
@@ -5916,7 +5916,7 @@
         {
           "i": 157,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là 23 .",
+          "prediction": "Mộtu của những 23 .",
           "references": [
             "Một cầu thủ bóng đá đang tung cú sút bóng .",
             "Người đàn ông đang thực hiện cú sút bóng trên sân cỏ .",
@@ -5928,7 +5928,7 @@
         {
           "i": 158,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn và những .",
+          "prediction": "ở bóng không, có những .",
           "references": [
             "Người đàn ông đang dựa vào người một cầu thủ bóng chày",
             "Người đàn ông đang ôm chặt vận động viên bóng chày",
@@ -5976,7 +5976,7 @@
         {
           "i": 162,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang có những .",
+          "prediction": "Một cuốn đang biết baseball .",
           "references": [
             "Cầu thủ bắt bóng đang chuẩn bị ném trả bóng .",
             "Cầu thủ bóng chày đang cầm bóng trên tay chuẩn bị ném trả .",
@@ -6024,7 +6024,7 @@
         {
           "i": 166,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn .",
           "references": [
             "Cầu thủ bắt bóng đang đặt chân lên gôn và chuẩn bị bắt bóng .",
             "Cầu thủ chạy gôn đang chạy về phía gôn .",
@@ -6036,7 +6036,7 @@
         {
           "i": 167,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là 310 .",
+          "prediction": "Một cuốn đang là .",
           "references": [
             "Một nhóm những cầu thủ bóng chày đang đứng trên sân .",
             "Các cầu thủ bóng chày đang đứng trên sân chờ đợi .",
@@ -6060,7 +6060,7 @@
         {
           "i": 169,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là 16, có những .",
+          "prediction": "Một cuốn đang là 9, 16, 2 .",
           "references": [
             "Những người đàn ông đang chơi bóng đá trên sân .",
             "Các cầu thủ bóng đá nam của hai đội đang nhảy lên tranh bóng bỏng .",
@@ -6108,7 +6108,7 @@
         {
           "i": 173,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu của những .",
           "references": [
             "Hai thanh niên đang chơi bóng đá trên sân .",
             "Hai người thanh niên đang cố gắng tranh bóng ngoài sân .",
@@ -6120,7 +6120,7 @@
         {
           "i": 174,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng .",
+          "prediction": "Một cuốn và những .",
           "references": [
             "Hai cậu bé đang chạy ở trên sân để đuổi theo quả bóng .",
             "Hai cậu bé đang tranh chấp bóng ở ngoài trời .",
@@ -6156,7 +6156,7 @@
         {
           "i": 177,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn đang đơn ra .",
           "references": [
             "Cầu thủ bóng chày đang cầm gậy thi đấu trên sân .",
             "Người đàn ông áo đen đang chơi bóng chày trên sân .",
@@ -6168,7 +6168,7 @@
         {
           "i": 178,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "MERCER 10",
           "references": [
             "Các cầu thủ bóng chày đang thi đấu trên sân .",
             "Cầu thủ bóng chày đang vung gậy đỡ bóng .",
@@ -6180,7 +6180,7 @@
         {
           "i": 179,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu của tennis .",
+          "prediction": "có những .",
           "references": [
             "Người phụ nữ đang đứng trên sân bóng chuyền hai tay cầm bóng .",
             "Vận động viên bóng chuyền nữ đang cầm bóng chuẩn bị giao bóng .",
@@ -6216,7 +6216,7 @@
         {
           "i": 182,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Mộtu đang nhất có 22 .",
           "references": [
             "Người phụ nữ đang đeo găng tay bóng chày thi đấu trên sân .",
             "Hai người phụ nữ đang chơi bóng chày trên sân .",
@@ -6264,7 +6264,7 @@
         {
           "i": 186,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "baseball player , bóng .",
+          "prediction": "baseball player , bat .",
           "references": [
             "Vận động viên bóng chày đang cầm gậy đỡ bóng .",
             "Trọng tài đang đứng sau cầu thủ bắt bóng quan sát trận đấu .",
@@ -6276,7 +6276,7 @@
         {
           "i": 187,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Mộtu của baseball player .",
           "references": [
             "Người đàn ông áo trắng đang chơi bóng chày trên sân .",
             "Cầu thủ bóng chày đang chuẩn bị ném bóng .",
@@ -6288,7 +6288,7 @@
         {
           "i": 188,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "có biết bóng .",
           "references": [
             "Cầu thủ bắt bóng vừa bắt bóng thành công .",
             "Cầu thủ đánh bóng vừa đỡ trượt bóng .",
@@ -6324,7 +6324,7 @@
         {
           "i": 191,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "có những tennis .",
+          "prediction": "có những tennis, các biết bóng tennis, cộng việc tennis .",
           "references": [
             "Bốn người phụ nữ đang ngồi trên ghế đá cầm vợt tennis .",
             "Một số người phụ nữ đang cầm vợt tennis ngồi trên ghế ngoài sân .",
@@ -6336,7 +6336,7 @@
         {
           "i": 192,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "trong 2013",
           "references": [
             "Cầu thủ bóng chày đang đứng một chân chuẩn bị ném bóng về phía trước .",
             "Cầu thủ bóng chày đang cầm bóng thi đấu trên sân .",
@@ -6348,7 +6348,7 @@
         {
           "i": 193,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "tên của tennis .",
+          "prediction": "Mộtu đang của tennis .",
           "references": [
             "Một người đàn ông và một người phụ nữ đang chơi tennis ở trên sân .",
             "Một người đàn ông và một người phụ nữ đang luyện tập tennis ở trên sân .",
@@ -6396,7 +6396,7 @@
         {
           "i": 197,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản .",
           "references": [
             "Hai nữ vận động viên tennis đang bắt tay ở cạnh cái lưới .",
             "Hai nữ vận động viên tennis đang bắt tay ở trên sân .",
@@ -6408,7 +6408,7 @@
         {
           "i": 198,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn .",
+          "prediction": "trong biết , tên âm .",
           "references": [
             "Một người đàn ông đang ôm quả bóng và đứng trên bãi biển .",
             "Một người đàn ông đang chuẩn bị bắt cái đĩa và ôm quả bóng bằng tay trái .",
@@ -6420,7 +6420,7 @@
         {
           "i": 199,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng .",
+          "prediction": "trong có nhân .",
           "references": [
             "Một cậu bé đang cầm gậy bóng chày ở trong vườn .",
             "Một cậu bé đang đặt gậy bóng chày lên vai ở trong vườn .",
@@ -6433,15 +6433,15 @@
     },
     "uitviic_test": {
       "metrics": {
-        "bleu": 0.22035207984171695,
-        "rougeL": 21.937280449694228,
+        "bleu": 0.20797816753046267,
+        "rougeL": 20.708859261932908,
         "n": 200
       },
       "samples": [
         {
           "i": 0,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng đang có biết sau của những .",
+          "prediction": "ở bóng của có ít 1983 .",
           "references": [
             "Một cậu bé đang chống đẩy trên quả banh."
           ]
@@ -6449,7 +6449,7 @@
         {
           "i": 1,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng đang có biết sau của những .",
+          "prediction": "ở bóng của có ít 1983 .",
           "references": [
             "Một cậu bé đang chống đầu lên quả bóng đá hít đất."
           ]
@@ -6457,7 +6457,7 @@
         {
           "i": 2,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng đang có biết sau của những .",
+          "prediction": "ở bóng của có ít 1983 .",
           "references": [
             "Một cậu bé đang hít đất đầu trên quả banh trên cỏ."
           ]
@@ -6465,7 +6465,7 @@
         {
           "i": 3,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng đang có biết sau của những .",
+          "prediction": "ở bóng của có ít 1983 .",
           "references": [
             "Một cậu bé đang hít đất cùng quả bóng và một cậu bé đang quan sát."
           ]
@@ -6473,7 +6473,7 @@
         {
           "i": 4,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng đang có biết sau của những .",
+          "prediction": "ở bóng của có ít 1983 .",
           "references": [
             "Một cậu bé đang chống đẩy trên một quả bóng đá."
           ]
@@ -6561,7 +6561,7 @@
         {
           "i": 15,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, tên của nhà .",
           "references": [
             "Hai hình ảnh người phụ nữ đang chơi tennis"
           ]
@@ -6569,7 +6569,7 @@
         {
           "i": 16,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, tên của nhà .",
           "references": [
             "Hình ảnh kép của một vận động viên tennis nữ đang thi đấu."
           ]
@@ -6577,7 +6577,7 @@
         {
           "i": 17,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, tên của nhà .",
           "references": [
             "Vận động viên tennis nữ đang bước tới vung vợt đỡ bóng"
           ]
@@ -6585,7 +6585,7 @@
         {
           "i": 18,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, tên của nhà .",
           "references": [
             "Vận động viên tennis nữ đang cầm vợt thi đấu trên sân."
           ]
@@ -6593,7 +6593,7 @@
         {
           "i": 19,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, tên của nhà .",
           "references": [
             "Vận động viên tennis nữ đang vung vợt đỡ bóng"
           ]
@@ -6601,7 +6601,7 @@
         {
           "i": 20,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang có những .",
+          "prediction": "Một cuốn đang là bóng .",
           "references": [
             "Một số người đàn ông đang chơi bóng chày trên sân."
           ]
@@ -6609,7 +6609,7 @@
         {
           "i": 21,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang có những .",
+          "prediction": "Một cuốn đang là bóng .",
           "references": [
             "Cầu thủ bóng chày đang trườn trên sân tranh bóng."
           ]
@@ -6617,7 +6617,7 @@
         {
           "i": 22,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang có những .",
+          "prediction": "Một cuốn đang là bóng .",
           "references": [
             "Một số cầu thủ bóng chày đang thi đấu trên sâu."
           ]
@@ -6625,7 +6625,7 @@
         {
           "i": 23,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang có những .",
+          "prediction": "Một cuốn đang là bóng .",
           "references": [
             "Hai cầu thủ bóng chày đang tranh bóng trên sân."
           ]
@@ -6633,7 +6633,7 @@
         {
           "i": 24,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang có những .",
+          "prediction": "Một cuốn đang là bóng .",
           "references": [
             "Một trận bóng chày đang diễn ra với nhiều người quan sát."
           ]
@@ -6721,7 +6721,7 @@
         {
           "i": 35,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu cuốn đang là nhà xuất bản tennis .",
+          "prediction": "Mộtu cuốn đang là gì .",
           "references": [
             "Người phụ nữ áo đỏ đang nhảy lên đánh trả bóng ."
           ]
@@ -6729,7 +6729,7 @@
         {
           "i": 36,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của quy�u 1 .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của quy�u là gì .",
           "references": [
             "Hai hình ảnh giống nhau của người phụ nữ đang cầm vợt tennis đứng khuỵu chân trên sân ."
           ]
@@ -6737,7 +6737,7 @@
         {
           "i": 37,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết của mộc nghĩ .",
+          "prediction": "Một cuốn .",
           "references": [
             "Một cầu thủ bóng chày đang nhìn quả bóng chày ."
           ]
@@ -6745,7 +6745,7 @@
         {
           "i": 38,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "bóng đang có biết .",
+          "prediction": "",
           "references": [
             "Cầu thủ đánh bóng đang vung gậy để đánh bóng ."
           ]
@@ -6753,7 +6753,7 @@
         {
           "i": 39,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong tennis , tên được bóng .",
+          "prediction": "có những tennis, các biết bóng .",
           "references": [
             "Người phụ nữ áo tím đang đứng ở trước người phụ nữ áo xám ở trên sân ."
           ]
@@ -6769,7 +6769,7 @@
         {
           "i": 41,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là .",
+          "prediction": "Mộtu của soccer .",
           "references": [
             "Các cầu thủ bóng đá đang thi đấu ở ngoài trời ."
           ]
@@ -6777,7 +6777,7 @@
         {
           "i": 42,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là .",
+          "prediction": "Mộtu của những .",
           "references": [
             "Các cầu thủ bóng đá đang đứng ở trên sân trước trận đấu ."
           ]
@@ -6793,7 +6793,7 @@
         {
           "i": 44,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của quy�u là gì .",
           "references": [
             "Một người phụ nữ đang chuẩn bị đánh quả bóng tennis ."
           ]
@@ -6817,7 +6817,7 @@
         {
           "i": 47,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "có những bóng đang biết ball, sách .",
+          "prediction": "có những đang biết bóng .",
           "references": [
             "Bên trong cái thùng gỗ có các dụng cụ thể thao ."
           ]
@@ -6857,7 +6857,7 @@
         {
           "i": 52,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Hai hình ảnh giống nhau của người phụ nữ đang thi đấu tennis ."
           ]
@@ -6865,7 +6865,7 @@
         {
           "i": 53,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đang nhất .",
+          "prediction": "Mộtu của soccer .",
           "references": [
             "Những cầu thủ bóng đá đang tập luyện trên sân ."
           ]
@@ -6873,7 +6873,7 @@
         {
           "i": 54,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quyển tennis.",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Một người đàn ông đang chuẩn bị đánh quả bóng tennis ."
           ]
@@ -6889,7 +6889,7 @@
         {
           "i": 56,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu cuốn sách tennis .",
           "references": [
             "Người phụ nữ đang vung vợt tennis về phía bóng ."
           ]
@@ -6913,7 +6913,7 @@
         {
           "i": 59,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết những .",
+          "prediction": "Một cuốn .",
           "references": [
             "Người đàn ông mặc áo trắng đang chơi bóng chày trên sân ."
           ]
@@ -6921,7 +6921,7 @@
         {
           "i": 60,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của quy�u 1 .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của quy�u là gì .",
           "references": [
             "Vận động viên tennis nữ đang câm vợt khum người đỡ bóng thấp ."
           ]
@@ -6929,7 +6929,7 @@
         {
           "i": 61,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang có những .",
+          "prediction": "có những .",
           "references": [
             "Các cầu thủ khác đang theo dõi cú ném bóng của cầu thủ ném bóng ."
           ]
@@ -6945,7 +6945,7 @@
         {
           "i": 63,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu đang của quốc cho có biết .",
           "references": [
             "Người đàn ông đang chơi bóng đá ngoài sân ."
           ]
@@ -6961,7 +6961,7 @@
         {
           "i": 65,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là 2000m .",
+          "prediction": "Một cuốn và chính của có biết .",
           "references": [
             "Hình ảnh hai cậu bé đang chơi trong khu dân cư ."
           ]
@@ -6985,7 +6985,7 @@
         {
           "i": 68,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong quy�u của đang là .",
+          "prediction": "trong quy�u của .",
           "references": [
             "Một con chó đang chạm chân vào quả bóng ở trên sân cỏ ."
           ]
@@ -7001,7 +7001,7 @@
         {
           "i": 70,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "có biết bóng .",
           "references": [
             "Cầu thủ bắt bóng đang đưa tay ra phía trước đón bóng ."
           ]
@@ -7017,7 +7017,7 @@
         {
           "i": 72,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu của soccer .",
           "references": [
             "Các cầu thủ đang đứng cùng những quả bóng ở trên sân ."
           ]
@@ -7025,7 +7025,7 @@
         {
           "i": 73,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "trong của tennis .",
           "references": [
             "Người đàn ông áo trắng đang chơi tennis trên sân ."
           ]
@@ -7033,7 +7033,7 @@
         {
           "i": 74,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quyển tennis.",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis.",
           "references": [
             "Người phụ nữ đang cầm vợt tennis thi đấu trên sân ."
           ]
@@ -7049,7 +7049,7 @@
         {
           "i": 76,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu đã cho những .",
           "references": [
             "Các cầu thủ bóng đá đang nói chuyện với trọng tài rải rác ở trên sân ."
           ]
@@ -7057,7 +7057,7 @@
         {
           "i": 77,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Vận động viên tennis nữ đang vung vợt đỡ bóng ."
           ]
@@ -7065,7 +7065,7 @@
         {
           "i": 78,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính của tennis .",
           "references": [
             "Một trận thi đấu tennis đôi nam đang diễn ra ở trên sân ."
           ]
@@ -7073,7 +7073,7 @@
         {
           "i": 79,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong tennis , tên được bóng .",
+          "prediction": "có những tennis, các biết bóng .",
           "references": [
             "Hai người phụ nữ đang chơi tennis ở trong nhà ."
           ]
@@ -7081,7 +7081,7 @@
         {
           "i": 80,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quyển tennis.",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis.",
           "references": [
             "Người phụ nữ đang vung vợt tennis về phía bóng ."
           ]
@@ -7105,7 +7105,7 @@
         {
           "i": 83,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đã có những .",
+          "prediction": "Mộtu đã là gì nhau .",
           "references": [
             "Các cầu thủ bóng đá đang mặc áo khoác luyện tập trên sân ."
           ]
@@ -7113,7 +7113,7 @@
         {
           "i": 84,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Hai hình ảnh giống nhau của người phụ nữ đang đánh tennis ."
           ]
@@ -7129,7 +7129,7 @@
         {
           "i": 86,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu của soccer .",
           "references": [
             "Các cầu thủ đang bước đi ở trên sân bóng đá ."
           ]
@@ -7161,7 +7161,7 @@
         {
           "i": 90,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Một cuốn tennis, tên của nhà .",
           "references": [
             "Đội tennis áo cam đang đỡ bóng qua phần sân bên kia ."
           ]
@@ -7177,7 +7177,7 @@
         {
           "i": 92,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đang là nhà xuất bản .",
+          "prediction": "Mộtu được đang biết có những .",
           "references": [
             "Người đàn ông trẻ đang giữ bóng dưới chân ."
           ]
@@ -7185,7 +7185,7 @@
         {
           "i": 93,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Hình ảnh kép của người phụ nữ đang cầm vợt chơi tennis ."
           ]
@@ -7209,7 +7209,7 @@
         {
           "i": 96,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết có những 10 năm .",
+          "prediction": "Một cuốn đang biết có những .",
           "references": [
             "Hai bức ảnh của một trận thi đấu bóng đá nữ ở trên sân ."
           ]
@@ -7217,7 +7217,7 @@
         {
           "i": 97,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng tennis .",
+          "prediction": "Một cuốn tennis .",
           "references": [
             "Một cô bé đang cầm vợt và quả bóng tennis ở cạnh bức tường ."
           ]
@@ -7225,7 +7225,7 @@
         {
           "i": 98,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu của soccer .",
           "references": [
             "Các cầu thủ bóng đá của hai đội đang thi đấu trên sân ."
           ]
@@ -7249,7 +7249,7 @@
         {
           "i": 101,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính của tennis .",
           "references": [
             "Hai nam vận động viên tennis đang cầm vợt và đứng ở trên sân ."
           ]
@@ -7273,7 +7273,7 @@
         {
           "i": 104,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng .",
+          "prediction": "trong quy�u của đang .",
           "references": [
             "Một cậu bé đang nghiêng người để đánh quả bóng chày ."
           ]
@@ -7297,7 +7297,7 @@
         {
           "i": 107,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu của soccer .",
+          "prediction": "Mộtu của những .",
           "references": [
             "Những người đàn ông đang thi đấu bóng đá trên sân trước đông đảo khán giả ."
           ]
@@ -7329,7 +7329,7 @@
         {
           "i": 111,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "bóng đang có biết .",
+          "prediction": "",
           "references": [
             "Cầu thủ đánh bóng đang nghiêng người để đánh bóng ."
           ]
@@ -7353,7 +7353,7 @@
         {
           "i": 114,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quyển tennis.",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis.",
           "references": [
             "Vận động viên tennis đang đứng trên sân cầm vợt đỡ bóng ."
           ]
@@ -7377,7 +7377,7 @@
         {
           "i": 117,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu đã cho những .",
           "references": [
             "Trọng tài đang đứng cạnh các cầu thủ bóng đá ở trên sân ."
           ]
@@ -7401,7 +7401,7 @@
         {
           "i": 120,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "tên của tennis .",
           "references": [
             "Một người đàn ông đang dùng vợt để đánh quả bóng tennis ."
           ]
@@ -7409,7 +7409,7 @@
         {
           "i": 121,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Vận động viên tennis đang cầm vợt thi đấu trên sân ."
           ]
@@ -7433,7 +7433,7 @@
         {
           "i": 124,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Nhà xuất bản tennis, những chính của .",
           "references": [
             "Hình ảnh kép của người đàn ông đang chơi tennis trên sân ."
           ]
@@ -7441,7 +7441,7 @@
         {
           "i": 125,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu đang của quốc cho có biết .",
           "references": [
             "Một người đang dẫn bóng trên sân cỏ ."
           ]
@@ -7449,7 +7449,7 @@
         {
           "i": 126,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của quy�u 1 .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của quy�u là gì .",
           "references": [
             "Vận động viên tennis nữ đang cầm vợt đứng thấp người chuẩn bị đỡ bóng ."
           ]
@@ -7457,7 +7457,7 @@
         {
           "i": 127,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu màu tennis .",
+          "prediction": "Mộtu cuốn đang là .",
           "references": [
             "Người phụ nữ đang cầm vợt đánh tennis trên sân ."
           ]
@@ -7465,7 +7465,7 @@
         {
           "i": 128,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu của soccer .",
+          "prediction": "Mộtu của những .",
           "references": [
             "Các cầu thủ bóng đá đang thi đấu trên sân trước đông đảo khán giả ."
           ]
@@ -7473,7 +7473,7 @@
         {
           "i": 129,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đang của tennis .",
+          "prediction": "Mộtu màu tennis .",
           "references": [
             "Vận động viên tennis nam đang cầm vợt thi đấu trên sân ."
           ]
@@ -7497,7 +7497,7 @@
         {
           "i": 132,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quyển tennis.",
           "references": [
             "Hai hình ảnh giống nhau của một người đàn ông đang chơi tennis ."
           ]
@@ -7505,7 +7505,7 @@
         {
           "i": 133,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu cuốn đang là nhà xuất bản tennis .",
           "references": [
             "Một người đàn ông đang cầm vợt tennis và đứng ở trên sân ."
           ]
@@ -7521,7 +7521,7 @@
         {
           "i": 135,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quyển tennis.",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis.",
           "references": [
             "Một trận thi đấu tennis đôi nữ đang diễn ra ở trên sân ."
           ]
@@ -7561,7 +7561,7 @@
         {
           "i": 140,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "có những đang biết baseball .",
+          "prediction": "có biết .",
           "references": [
             "Những người đàn ông đang chơi bóng chày trên sân ."
           ]
@@ -7569,7 +7569,7 @@
         {
           "i": 141,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu đang nhất tennis .",
           "references": [
             "Một nữ vận động viên tennis đang dùng vợt để đánh bóng ."
           ]
@@ -7585,7 +7585,7 @@
         {
           "i": 143,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là .",
+          "prediction": "Mộtu của những .",
           "references": [
             "Một cầu thủ bóng đá đang đứng ở trước khung thành với quả bóng trên tay ."
           ]
@@ -7601,7 +7601,7 @@
         {
           "i": 145,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Nhà xuất bản tennis, những chính của quyển .",
+          "prediction": "Nhà xuất bản tennis, những chính của tennis .",
           "references": [
             "Hai nam vận động viên tennis đang thi đấu ở trên sân ."
           ]
@@ -7617,7 +7617,7 @@
         {
           "i": 147,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, tên của nhà .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Hai bức ảnh của một người phụ nữ đang chuẩn bị đánh quả bóng tennis ."
           ]
@@ -7633,7 +7633,7 @@
         {
           "i": 149,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đang nhất .",
+          "prediction": "Mộtu của soccer .",
           "references": [
             "Các cầu thủ bóng đá đang luyện tập đá bóng trên sân ."
           ]
@@ -7641,7 +7641,7 @@
         {
           "i": 150,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu đang là nhà xuất bản .",
+          "prediction": "Mộtu được đang biết có những .",
           "references": [
             "Người đàn ông đang chơi đá banh trên sân cỏ ."
           ]
@@ -7657,7 +7657,7 @@
         {
           "i": 152,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là 19 .",
+          "prediction": "Một cuốn đang là 19, có những biết sau đã .",
           "references": [
             "Cầu thủ áo xanh đang ngã vào chân của cầu thủ áo trắng ."
           ]
@@ -7681,7 +7681,7 @@
         {
           "i": 155,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quyển tennis.",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của tennis .",
           "references": [
             "Hai hình ảnh giống nhau người phụ nữ đang chơi tennis trên sân ."
           ]
@@ -7721,7 +7721,7 @@
         {
           "i": 160,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "tên của soccer đang .",
+          "prediction": "tên của soccer .",
           "references": [
             "Những người đàn ông đang chơi bóng đá ở trên sân ."
           ]
@@ -7761,7 +7761,7 @@
         {
           "i": 165,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng nhất .",
+          "prediction": "ở bóng không, những .",
           "references": [
             "Hai người bạn đang chụp ảnh sau khi chơi tennis ."
           ]
@@ -7769,7 +7769,7 @@
         {
           "i": 166,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, sau của tennis .",
           "references": [
             "Một nữ vận động viên tennis đang vung vợt để đánh bóng ."
           ]
@@ -7777,7 +7777,7 @@
         {
           "i": 167,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là gì .",
+          "prediction": "Mộtu của soccer .",
           "references": [
             "Những người đàn ông đang đứng cùng những quả bóng ở trên sân cỏ ."
           ]
@@ -7801,7 +7801,7 @@
         {
           "i": 170,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn bóng .",
+          "prediction": "trong quy�u của đang .",
           "references": [
             "Một cậu bé đang chơi bóng chày ở trong vườn vào ban ngày ."
           ]
@@ -7817,7 +7817,7 @@
         {
           "i": 172,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "baseball player , bat .",
+          "prediction": "",
           "references": [
             "Cầu thủ đánh bóng cầm gậy chuẩn bị đỡ bóng và cầu thủ bắt bóng đang ngồi sẵn sàng bắt bóng ."
           ]
@@ -7833,7 +7833,7 @@
         {
           "i": 174,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Hai vận động viên tennis nữ đang cầm vợt thi đấu trên sân ."
           ]
@@ -7841,7 +7841,7 @@
         {
           "i": 175,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Trong cuốn sách, nhà xuất bản quyển đang biết giới có 20 năm 20013.",
+          "prediction": "Trong cuốn sách, nhà xuất bản quyển và chính thức của giới có biết trong 200m.",
           "references": [
             "Nữ vận động viên tennis áo tím đang nhảy lên để đánh bóng ."
           ]
@@ -7857,7 +7857,7 @@
         {
           "i": 177,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn .",
           "references": [
             "Một cầu thủ bóng chày đang giơ gậy lên cao để đánh bóng ."
           ]
@@ -7865,7 +7865,7 @@
         {
           "i": 178,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu cuốn sách tennis .",
           "references": [
             "Người đàn ông áo trắng đang chơi tennis trên sân ."
           ]
@@ -7873,7 +7873,7 @@
         {
           "i": 179,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là 2015 .",
+          "prediction": "Một cuốn đang là .",
           "references": [
             "Những cậu bé đang chơi bóng đá ở trên sân ."
           ]
@@ -7889,7 +7889,7 @@
         {
           "i": 181,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Một người đàn ông đang bước qua phải để đánh quả bóng tennis ."
           ]
@@ -7897,7 +7897,7 @@
         {
           "i": 182,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn .",
           "references": [
             "Một cầu thủ đánh bóng đang chuẩn bị đánh bóng ."
           ]
@@ -7921,7 +7921,7 @@
         {
           "i": 185,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Mộtu tennis đang 2016 .",
+          "prediction": "Mộtu tennis đang 2015 .",
           "references": [
             "Nam vận động viên áo đỏ đang đứng khuỵu chân ở trên sân tennis ."
           ]
@@ -7929,7 +7929,7 @@
         {
           "i": 186,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết có những .",
+          "prediction": "Mộtu của nhà .",
           "references": [
             "Cầu thủ bắt bóng đang đứng cạnh cầu thủ chạy gôn ở trên sân ."
           ]
@@ -7937,7 +7937,7 @@
         {
           "i": 187,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết baseball .",
+          "prediction": "Một cuốn baseball .",
           "references": [
             "Cầu thủ ném bóng vừa thực hiện cú phát bóng"
           ]
@@ -7945,7 +7945,7 @@
         {
           "i": 188,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu đang nhất tennis .",
           "references": [
             "Một người phụ nữ đang dùng vợt để đánh quả bóng tennis ."
           ]
@@ -7961,7 +7961,7 @@
         {
           "i": 190,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang là 2015 .",
+          "prediction": "Một cuốn đang là .",
           "references": [
             "Cậu bé áo trắng đang nghiêng người ở trên sân ."
           ]
@@ -7969,7 +7969,7 @@
         {
           "i": 191,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis .",
+          "prediction": "Mộtu cuốn đang là nhà xuất bản tennis .",
           "references": [
             "Một người đàn ông đang cầm vợt tennis và thả quả bóng xuống sân ."
           ]
@@ -7985,7 +7985,7 @@
         {
           "i": 193,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Nhà xuất bản tennis, những chính của .",
           "references": [
             "Người đàn ông đang vung vợt tennis đánh trả bóng ."
           ]
@@ -7993,7 +7993,7 @@
         {
           "i": 194,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quyển tennis.",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis.",
           "references": [
             "Hai vận động viên tennis nữ đang cầm vợt tennis đánh đôi trên sân ."
           ]
@@ -8001,7 +8001,7 @@
         {
           "i": 195,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
           "references": [
             "Một nữ vận động viên tennis đang nhảy lên để đánh bóng ."
           ]
@@ -8009,7 +8009,7 @@
         {
           "i": 196,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn đang biết bóng .",
+          "prediction": "Một cuốn đang biết baseball .",
           "references": [
             "Cầu thủ bắt bóng và trọng tài đang theo dõi động tác của cầu thủ đánh bóng ."
           ]
@@ -8017,7 +8017,7 @@
         {
           "i": 197,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên của tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Hai vận động viên tennis đang thi đấu cùng đội trên sân ."
           ]
@@ -8025,7 +8025,7 @@
         {
           "i": 198,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính của tennis .",
+          "prediction": "Một cuốn tennis, nhà xuất bản tennis, tên chính quy�u tennis .",
           "references": [
             "Một người phụ nữ đang vung vợt để đánh quả bóng tennis ."
           ]
@@ -8033,7 +8033,7 @@
         {
           "i": 199,
           "question": "Mô tả bức ảnh này bằng một câu tiếng Việt.",
-          "prediction": "trong của tennis .",
+          "prediction": "trong của tennis, tên được nhất .",
           "references": [
             "Một cô bé đang luyên tập tennis ở trên sân ."
           ]
