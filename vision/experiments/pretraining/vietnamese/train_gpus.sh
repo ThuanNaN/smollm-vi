@@ -47,6 +47,13 @@ GRAD_ACCUM="${GRAD_ACCUM:-4}"
 WARMUP_RATIO="${WARMUP_RATIO:-0.07}"
 RUN_NAME="${RUN_NAME:-vietnamese_stage1_3gpu_v2}"
 
+# HF Trainer's default ddp_timeout is 1800s, and a dose-50 run on this host died to
+# exactly that: "ALLREDUCE ... ran for 1800012 milliseconds before timing out". The
+# NCCL_SHM_DISABLE workaround below routes collectives over PCIe/socket, which can
+# stall for minutes when another job competes for the bus. Raise the ceiling so a
+# transient stall costs time instead of the whole run.
+DDP_TIMEOUT="${DDP_TIMEOUT:-7200}"
+
 # Resolve to absolute paths: torchrun launches train.py with CWD=vision/smolvlm2
 # below, so any relative DATA_FOLDER/TOKENIZER_DIR would resolve against the wrong dir.
 DATA_FOLDER="$(realpath "$DATA_FOLDER")"
@@ -112,6 +119,7 @@ torchrun --standalone --nproc_per_node="$NUM_GPUS" \
     --dataloader_num_workers 4 \
     --dataloader_drop_last True \
     --ddp_find_unused_parameters False \
+    --ddp_timeout "$DDP_TIMEOUT" \
     --peft_enable True \
     --lora_rank 32 \
     --lora_alpha 64 \
